@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sublime View Concepts</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+
+<body>
+    <div id="inner">
+        <h1>Sublime <q>View</q> Concepts</h1>
+
+        <div class="navigation">
+            <a href="index.html">home</a> | <a href="index.html">prev</a> | <a href="#">next</a>
+        </div>
+
+        <div id="toc">
+            <h2>Table Of Contents</h2>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+            </ul>
+            <ul>
+                <li><a href="#buffer">Buffer</a></li>
+                <li><a href="#view">View</a></li>
+                <li><a href="#selection">Selection</a></li>
+                <li><a href="#point">Point</a></li>
+                <li><a href="#region">Region</a></li>
+                <li><a href="#lines-rows-and-columns">Lines, Rows and Columns</a></li>
+                <li><a href="#regionset">RegionSet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#comments">Quiz</a></li>
+                <li><a href="#comments">Comments</a></li>
+                <!-- <li><a href="#related">How are they related?</a></li> -->
+            </ul>
+        </div>
+
+        <div id="introduction" class="section">
+            <h2>Introduction</h2>
+            <p>
+                We'll first take a high level simplistic introduction to some concepts related to Sublime views.
+                Related <code>api</code> details as will be referred to as little as possible. <!-- This is a useful
+                grounding for when you want make your own plugins. -->
+            </p>
+        </div>
+
+
+        <div id="buffer" class="section">
+            <h2>Buffer</h2>
+            <p>A buffer is a collection of <strong>characters</strong>.
+            Note the emphasis on characters as opposed to bytes. A buffer is represented
+            as abstract text ( <a href="http://en.wikipedia.org/wiki/Unicode">unicode</a> ) and encoded/decoded on save/load respectively.
+            </p>
+            <p class='concrete'>In concrete terms a buffer could be an in memory version of an already
+            existing file or it could be a new unsaved file.</p>
+        </div>
+
+        <div id="view" class="section">
+            <h2>View</h2>
+            <p>
+                Let's looks at what the
+                <a href="http://www.sublimetext.com/docs/api-reference#sublime.View">the api reference</a>
+                for a View has to say.
+                <blockquote>
+                    Represents a view into a text buffer. Note that
+                    <strong>multiple views may refer to the same buffer</strong>, but
+                    they have <strong>their own unique selection</strong> and geometry.
+                </blockquote>
+                <p class="concrete">
+                    Each <q>View</q> has a concrete manifestation in Sublime as
+                    a <q>tab</q> and this essentially means you can have two
+                    (or more) tabs open editing the same memory buffered
+                    version of a file at once. Edits you make to one are
+                    reflected in the other, however each has its own set
+                    of selections. In other words you could be editing the
+                    top part of a buffer in one tab and the bottom in the
+                    other.
+                </p>
+                <img src="images/new-view.gif" />
+            </p>
+        </div>
+
+        <div id="selection" class="section">
+            <h2>Selection</h2>
+            <p>
+                A selection is a <q>Region</q> of selected text (characters) in the buffer.
+                In real terms think a cursor or a word you double clicked
+                on.
+            </p>
+            <a name="selections-and-cursors"> <img src="images/selections-and-cursors.gif" /></a>
+        </div>
+
+
+        <div id="point" class="section">
+            <h2>Point</h2>
+            <p>A point is a zero based index of a <strong>character</strong> in a buffer</p>
+        </div>
+
+
+        <div id="region" class="section">
+            <p>
+                <h2>Region</h2>
+                Let's looks at what the
+                <a href="http://www.sublimetext.com/docs/api-reference#sublime.Region">the api reference</a>
+                for a Region has to say.
+                <blockquote>Region(a, b).  Represents an area of the buffer. Empty regions, where a == b are valid.</blockquote>
+            </p>
+
+            <p> A region <strong>may</strong> represent a Selection but may just represent an area of a buffer. The concepts are related but not the same.</p>
+            <p> <q>a</q> and <q>b</q> refer to the entry and exit points of a Region</p>
+
+            <!-- <p>A Region has these properties:</p> -->
+            <!-- <ul>
+                <li>Direction</li>
+                <li>Point a</li>
+                <li>Point b</li>
+                <li>Length</li>
+                <li>Beginning</li>
+                <li>Ending</li>
+            </ul> -->
+
+            <div>
+                <h3>Direction</h3>
+                <p>
+                    If a Region is comprised of the area between two points <q>a</q> and <q>b</q> then it stands to reason
+                    it must have a direction with point a being the first point of contact and point b the last.
+                </p>
+                <img src="images/selections-abc.gif"/>
+            </div>
+            <div>
+                <h3>Points a and b</h3>
+                <p> The entry and exit points representing the bounds of a region </p>
+            </div>
+            <div>
+                <h3>Length ( <code>size()</code> )</h3>
+                <ul>
+                    <li><code>abs(a - b)</code></li>
+                    <li>
+                        A Region with no length ( <code>a == b</code> ) is an <q>empty</q> region. If the region represents
+                        a selection then that selection would be visualised as a <a href="#selections-and-cursors">cursor</a> <q>between</q> characters.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>Beginning &amp; End points</h3>
+                <p> Regions also have a <code>begin()</code> and <code>end()</code> representing
+                    <code>min(a, b)</code> and <code>max(a, b)</code>
+                </p>
+            </div>
+            <div>
+                <h3>Buffer Indexing</h3>
+                <ul>
+                    <li>Indexing is zero based, between <code>begin()</code> and <code>end()</code> points. </li>
+                    <li>
+                        With non empty region the <code>end()</code> point is exclusive.
+                        <p><code>Region(0, 2)</code> indexes points: <code>[0, 1]</code></p>
+                    </li>
+                    <li>
+                        <q>empty</q> regions such as those representing a cursor will index characters
+                        as a point. The end while still exclusive is not subtractive.
+                        <p><code>Region(0, 0)</code> indexes points: <code>[0]</code></p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="lines-rows-and-columns" class="section">
+            <h2>
+                Lines, Rows and Columns
+            </h2>
+            <img src="images/lines-rows-cols.gif" />
+
+            <p>
+                A Line (or row) is just a Region representing an area of the buffer between <q>\n</q> characters.
+            </p>
+            <p>
+                A Column is a 1 based character offset from the beginning of the line.
+            </p>
+            <p>
+                A Region may span one or more lines or even just a single column.
+            </p>
+        </div>
+        <div id="regionset" class="section">
+            <h2>RegionSet</h2>
+            <p>
+                Let's looks at what the
+                <a href="http://www.sublimetext.com/docs/api-reference#sublime.RegionSet">the api reference</a>
+                for a RegionSet has to say.
+                <blockquote>
+                    Maintains a <strong>set</strong> of Regions, ensuring that <strong>none overlap</strong>, and that they are kept in sorted order.
+                </blockquote>
+            </p>
+            <p>
+
+                The job of a RegionSet is to do all the bookkeeping of
+                the selection Regions when you add/remove selections.
+                Sublime is capable of multiple selections so when a
+                modification is made to the buffer it must also
+                adjust all effected region offsets
+            </p>
+
+            <div>
+                <h3>Set Behaviour</h3>
+                <ul>
+                    <li>
+                        If you are mathematical you know what this implies, but if you are more familiar with
+                        python then think of a RegionSet as a special kind of <code>set()</code> for regions.
+
+                        A set is a container that will only contain one of each unique element and it keeps them in sorted order.
+                    </li>
+                    <li>What makes a Region unique? That would be its area represented by its <code>begin()</code> and <code>end()</code> points </li>
+                    <li>How are Regions compared for sorting? That would be by the <code>begin()</code> point</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Non Overlapping Elements</h3>
+                <p>
+                    There is one big difference to typical set behaviour.
+
+                    If you add a region to a RegionSet that already
+                    contains a region its area would intersect with,
+                    the two are merged. It's a very easy concept to <q>see</q>.
+
+                    Just play around with multiple selections ( ctrl + left mouse click )
+                </p>
+                <img src="images/regionset-merge.gif"/>
+            </div>
+        </div>
+
+        <div id="quiz" class='section'>
+            <h2>Quiz</h2>
+            <ul>
+                <li>What is XXXX? </li>
+                <li>XXXX?</li>
+                <li>XXXX?</li>
+            </ul>
+        </div>
+
+        <div id="comments" class='section'>
+            <h2>Comments</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript" src="http://disqus.com/forums/sublimetext/embed.js"></script>
+            <noscript>
+                <a href="http://sublimetext.disqus.com/?url=ref">View the discussion thread.</a>
+            </noscript>
+            <a href="http://disqus.com" class="dsq-brlink">
+                blog comments powered by
+                <span class="logo-disqus">Disqus</span>
+            </a>
+        </div>
+
+        <div class="navigation">
+            <a href="index.html">home</a> | <a href="index.html">prev</a> | <a href="">next</a>
+        </div>
+
+        <!-- <div id='related'>
+            <h2>How are they related?</h2>
+        </div> -->
+    </div>
+</body>
+</html>

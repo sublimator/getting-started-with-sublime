@@ -1,0 +1,106 @@
+body
+{
+    text-align:center;
+    margin:0;
+    padding:0;
+    font-family:trebuchet ms;
+    background-color:#000;
+    font-size:11pt;
+    color:#7f909f;
+}
+
+code
+{
+    color:#BECDE6;
+}
+
+
+div.navigation
+{
+    float:right;
+    margin:1em;
+}
+
+#inner
+{
+    width:800px;
+    margin:0 auto;
+    text-align:left;
+    background-color:#0C1021;
+    padding:2em;
+    top:0;
+    left:0;
+}
+
+a
+{
+    color:darkgrey;
+}
+
+li
+{
+/*color:#FF6400;*/
+}
+
+q
+{
+    color:#61CE3C;
+}
+
+strong
+{
+    color:#7f909f;
+    font-weight:bolder;
+    background-color:#0C3041;
+}
+
+h1,h2,h3
+{
+    color:#8DA6CE;
+}
+
+blockquote
+{
+/*background-color:darkgrey;*/
+    padding:5px;
+    color:#CCC;
+}
+
+p
+{
+/*            margin-bottom: 0;
+            margin-top: 0.5em;
+*/
+    margin-left:1em;
+}
+
+img
+{
+    margin-left:2em;
+    border:3px solid #000;
+}
+
+div.section
+{
+    margin-bottom:1em;
+    border-top:1px solid grey;
+    clear:both;
+}
+
+div.section li
+{
+    margin-top:.5em;
+}
+
+p.concrete
+{
+    background-image:url(http://tbn2.google.com/images?q=tbn:-DRiI4Eu9PLuyM:http://startswithabang.com/wp-content/uploads/2009/03/question_mark2.jpg);
+    background-repeat:no-repeat;
+    min-height:120px;
+    padding-left:120px;
+}
+
+div.section div
+{
+    margin-left:1em;
+}
