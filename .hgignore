@@ -1,0 +1,5 @@
+syntax: glob
+*.pyc
+manage.py
+tags
+tags_sorted_by_file
