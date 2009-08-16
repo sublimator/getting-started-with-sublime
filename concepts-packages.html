@@ -9,23 +9,31 @@
 
 <body>
     <div id="inner">
-        <h1></h1>
+        <h1>Sublime Package Concepts</h1>
 
         <div class="navigation">
     <a href="index.html">home</a> | <a href="concepts-commands.html">prev</a> | <a href="concepts-configuration.html">next</a>
 </div>
 
 
-        <!-- <div id="toc">
+        <div id="toc">
             <h2>Table Of Contents</h2>
             <ul>
-                <li><a href="#">XXXXXX</a></li>
+                <li><a href="#introduction">Introduction</a></li>
             </ul>
             <ul>
-                <li><a href="#comments">Quiz</a></li>
+                <li><a href="#as-folder">As Folder</a></li>
+                <li><a href="#packages-path-where">Packages Path. Where?</a></li>
+                <li><a href="#as-zip">As Zip</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <!-- <li><a href="#upgrade-rules">Upgrade Rules</a></li> -->
+            </ul>
+            <ul>
+                <!-- <li><a href="#comments">Quiz</a></li> -->
+                <li><a href="#try-this">Try this</a></li>
                 <li><a href="#comments">Comments</a></li>
             </ul>
-        </div> -->
+        </div>
 
         <!-- <div id="introduction" class="section">
             <h2>Introduction</h2>
@@ -36,20 +44,125 @@
 
         <div id="quiz" class='section'>
             <h2>Introduction</h2>
-            <p>
-                Sublime stores all its language support files in
-                packages. For example Sublime ships with a
+            <p> 
+                Sublime groups assets together into packages. 
+                For example Sublime ships with a
                 <q>Python</q> package containing syntax
-                highlighting support and an assortment of snippets.
+                highlighting support and an assortment of snippets
+                and various other package <q>assets</q>
             </p>
         </div>
 
-        <div id="try-this" class='section'>
-            <h2>Try this</h2>
-            <li>Open the python console</li>
+        <div id="as-folder" class='section'>
+            <h2>As Folder</h2>
+            <p>
+                A package is basically a just a folder placed on a special path where Sublime will look for them.
+            </p>
+        </div>
+
+        <div id="where" class='section'>
+            <h2>Packages Path. Where?</h2>
+            
+            <ul>
+                <li>Typically %APPDATA%\Sublime Text\Packages</li>
+                <li>However, can be anywhere with a portable installation of Sublime</li>
+            </ul>
+        </div>
+
+        <div id="as-zip" class='section'>
+            <h2>As Zip</h2>
+            <p>
+
+                A folder may be zipped up to create a package installer. 
+                Sublime sets up file type associations with
+                the extension <q>sublime-package</q>. 
+            </p>
+            <p>
+                By double 
+                clicking on a zipped up package Sublime will either
+                create a new folder in the packages path or update an
+                existing one following special upgrade rules
+            </p>
+            <p>
+                The packages that come with a standard installation of Sublime
+                are upgraded between versions via this mechanism.
+            </p>
         </div>
 
 
+        <div id="terms" class="section">
+            <h2>Terms</h2>
+            
+            <p> 
+                Open a console or your gui file manager of choice and 
+                have a quick peek at the contents of any directories mentioned
+            </p>
+
+            <dl>
+                <dt>Asset</dt>
+                <dd>
+                    A discrete resource such as
+                    <ul>
+                        <li>a snippet</li>
+                        <li>a file containing bindings mapping commands to keyboard combinations</li>
+                        <li>a python file containing a plugin command</li>
+                        <li>a per file type options file</li>
+                    </ul>
+                </dd>
+            
+                <dt>Data Directory</dt>
+                <dd>
+                
+                    The folder where Sublime stores the uncompressed package files and users
+                    generally makes modifications.
+
+                    <p>%APPDATA%/Sublime Text/Packages</p>
+                </dd>
+
+            
+                <dt>Pristine Packages</dt>
+                <dd>
+                    Sublime stores pristine (untouched) copies of an xxxx.sublime-package for later
+                    purpose of determining differences between packages between upgrades.
+                        <p>%APPDATA%/SublimeText/Pristine Packages</p>
+                </dd>
+                
+                <dt>Installed Packages</dt>
+                <dd>
+                    The folder where Sublime will place user installed `double-clicked` sublime-package files.
+
+                    <p>%APPDATA%/Sublime Text/Installed Packages</p>
+                </dd>
+                                
+                <dt>Orphans</dt>
+                <dd>
+                    Orphans are files that were in the old version of a package but no longer
+                    in the new version.
+                </dd>
+            </dl>                
+        </div>
+
+
+
+        <div id="try-this" class='section'>
+            <h2>Try this</h2>
+            <ul>
+                <li>Open the python console</li>
+                <li>Type in and evaluate the following python</li>
+                <li>
+                    <pre>
+import sublime
+
+# Find the Data directory
+print sublime.packagesPath()
+
+# Find where user installed packages go
+print sublime.installedPackagesPath()
+                    </pre>
+                </li>
+            </ul>
+        </div>        
+        
         <!-- <div id="quiz" class='section'>
             <h2>Quiz</h2>
             <ul>

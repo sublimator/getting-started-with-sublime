@@ -30,13 +30,15 @@
             <h2>Table Of Contents</h2>
             <ul>
                 <li><a href="#introduction">Introduction</a></li>
+            </ul>
+            <ul>
                 <li><a href="#command-types">Command Types</a></li>
                 <li><a href="#try-this">Try This</a></li>
             </ul>
-            <!-- <ul>
-                <li><a href="#comments">Quiz</a></li>
+            <ul>
+                <!-- <li><a href="#comments">Quiz</a></li> -->
                 <li><a href="#comments">Comments</a></li>
-            </ul> -->
+            </ul>
         </div>
 
         <div id="introduction" class="section">
@@ -44,7 +46,7 @@
             <p>
 
                 All operations in Sublime are implemented via commands. There are commands
-                related to each of the main objects in the application hierarchy.
+                related to each of the main objects in the application hierarchy except for projects.
             </p>
             <p>
                 No commands are hardcoded to any particular interface, be it keybinding or menu item.
@@ -57,10 +59,6 @@
 
         <div id='command-types' class='section'>
             <h2>Command Types</h2>
-            <p>
-                As noted in the previous section Sublime has an object hierachy. Each of the main objects also has a related command type
-                except projects.
-            </p>
             <table>
                 <tr>
                     <td>Sublime</td>
@@ -107,7 +105,7 @@
         <div id="try-this" class='section'>
             <h2>Try this </h2>
             <ul>
-                <li>Press ctrl and tilda to open the Python console</li>
+                <li>Press ctrl and backquote to open the Python console</li>
                 <li>Try running some view and window commands via the Python API</li>
                 <li>Notice that a view can't run a window command such as <q>new</q></li>
             </ul>

@@ -43,6 +43,13 @@ li
 /*color:#FF6400;*/
 }
 
+dl {
+    margin-left: 1em;
+}
+dt, dd {
+    margin-bottom: 1em;
+}
+
 q
 {
     color:#61CE3C;
