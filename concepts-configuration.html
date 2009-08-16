@@ -3,13 +3,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Sublime Configuration Concepts</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
 
 <body>
     <div id="inner">
-        <h1></h1>
+        <h1>Sublime Configuration Concepts</h1>
 
         <div class="navigation">
     <a href="index.html">home</a> | <a href="concepts-packages.html">prev</a> | <a href="concepts-minimap.html">next</a>
@@ -19,10 +19,10 @@
         <div id="toc">
             <h2>Table Of Contents</h2>
             <ul>
-                <li><a href="#">XXXXXX</a></li>
+                <li><a href="#introduction">Introduction</a></li>
             </ul>
             <ul>
-                <li><a href="#comments">Quiz</a></li>
+                <!-- <li><a href="#comments">Quiz</a></li> -->
                 <li><a href="#comments">Comments</a></li>
             </ul>
         </div>
@@ -30,18 +30,62 @@
         <div id="introduction" class="section">
             <h2>Introduction</h2>
             <p>
-                XXXXX
+                Sublime is <strong>extremely</strong> configurable. As mentioned in the command section, nothing is hard coded. <strong>Every</strong>
+                keybinding is customizable as are all of the drop down menus. The theme is customizable. Every thing is configured by editing plain text 
+                files, some structured in xml, others in a very simple ini type format.
             </p>
         </div>
+        
+        <div id="friendly-hint" class='section'>
+            <h2>Opening Warning</h2>
+            <p>
+                It is <strong>HIGHLY, SUPER STRONGLY</strong> recommended to put your <a href="concepts-packages.html#data-directory">data directory</a> under version control.
+                <strong>Commit before every update</strong> of Sublime.
+                At the time of writing the <q>Package</q> upgrade rules don't account for user modifications to packages
+                that ship with Sublime. eg changes to assets in the <q>Python</q> package that comes with Sublime.
+            </p>
+            <p>
+                It is therefore possible, however very unlikely, to lose your customized settings inbetween
+                updates. This is far from ideal but not really that big of a deal as long as <q>safe configuration</q> is
+                practiced. There are some <q>best practices</q> you can follow to minimize the risk.
+            </p>
+            <p>
+                Some of the settings can be placed in a "User" package which is automatically merged with defaults 
+                but in some cases it's impossible to avoid having to manually merge in changes.
+            </p>
+            <p>
+                This is not something that you'll need to do often but it pays to be aware.
+            </p>
+        </div>
+        
+        <div id="try-this" class='section'>
+            <h2>Try this</h2>
+            <ul>
+                <li>Open the python console</li>
+                <li>Type in and evaluate the following python</li>
+                <li>
+                    <pre>
+import sublime
 
-        <div id="quiz" class='section'>
+# Find the Data directory
+print sublime.packagesPath()
+
+# Find where user installed packages go
+print sublime.installedPackagesPath()
+                    </pre>
+                </li>
+            </ul>
+        </div>
+        
+        
+        <!-- <div id="quiz" class='section'>
             <h2>Quiz</h2>
             <ul>
                 <li>What is XXXX? </li>
                 <li>XXXX?</li>
                 <li>XXXX?</li>
             </ul>
-        </div>
+        </div> -->
 
         <div id="comments" class='section'>
             <h2>Comments</h2>
