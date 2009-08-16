@@ -14,7 +14,6 @@ code
     color:#BECDE6;
 }
 
-
 div.navigation
 {
     margin:1em;
@@ -105,4 +104,131 @@ p.concrete
 div.section div
 {
     margin-left:1em;
+}
+
+pre.blackboard
+{
+    background-color:#0C1021;
+    color:#F8F8F8;
+}
+
+pre.blackboard .comment
+{
+    color:#AEAEAE;
+}
+
+pre.blackboard .constant
+{
+    color:#D8FA3C;
+}
+
+pre.blackboard .entity
+{
+    color:#FF6400;
+}
+
+pre.blackboard .keyword
+{
+    color:#FBDE2D;
+}
+
+pre.blackboard .storage
+{
+    color:#FBDE2D;
+}
+
+pre.blackboard .string
+{
+    color:#61CE3C;
+}
+
+pre.blackboard .support
+{
+    color:#8DA6CE;
+}
+
+pre.blackboard .variable
+{
+}
+
+pre.blackboard .invalidDeprecated
+{
+    color:#AB2A1D;
+}
+
+pre.blackboard .invalidIllegal
+{
+    background-color:#9D1E15;
+    color:#F8F8F8;
+}
+
+pre.blackboard .superclass
+{
+    color:#FF6400;
+}
+
+pre.blackboard .stringInterpolation
+{
+    color:#FF6400;
+}
+
+pre.blackboard .metaFunctionCallPy
+{
+    color:#BECDE6;
+}
+
+pre.blackboard .metaTag
+{
+    color:#7F90AA;
+}
+
+pre.blackboard .entityNameSection
+{
+    color:#FFF;
+}
+
+pre.blackboard .ocamlVariant
+{
+    color:#D5E0F3;
+}
+
+pre.blackboard .ocamlOperator
+{
+    color:#F8F8F8;
+}
+
+pre.blackboard .ocamlInfixOperator
+{
+    color:#8DA6CE;
+}
+
+pre.blackboard .ocamlPrefixOperator
+{
+    color:#8DA6CE;
+}
+
+
+pre.blackboard .latexEnvironment
+{
+    background-color:#FFFFFF08;
+}
+
+pre.blackboard .latexEnvironmentNested
+{
+    background-color:#7A96FA08;
+}
+
+pre.blackboard .latexSupport
+{
+    color:#FBDE2D;
+}
+
+pre.blackboard .plistUnquotedString
+{
+    color:#FFF;
+}
+
+pre.blackboard .lineNumber
+{
+    color:#7f909f;
 }

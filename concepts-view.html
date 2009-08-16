@@ -5,6 +5,11 @@
 <head>
     <title>Sublime View Concepts</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <style type="text/css" media="screen">
+        ul {
+            margin-bottom: 1.5em;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,7 +35,8 @@
                 <li><a href="#regionset">RegionSet</a></li>
             </ul>
             <ul>
-                <li><a href="#comments">Quiz</a></li>
+                <li><a href="#try-this">Try This</a></li>
+                <li><a href="#quiz">Quiz</a></li>
                 <li><a href="#comments">Comments</a></li>
                 <!-- <li><a href="#related">How are they related?</a></li> -->
             </ul>
@@ -42,6 +48,20 @@
                 We'll first take a high level simplistic introduction to some concepts related to Sublime views.
                 Related <code>api</code> details as will be referred to as little as possible. <!-- This is a useful
                 grounding for when you want make your own plugins. -->
+            </p>
+            <p>
+                Sublime is atypical in its selection paradigm so even if you are familiar with other editors it will
+                pay to work through this very light read. This background knowledge will come in handy when you go
+                to create your own commands.
+            </p>
+            <p>
+                At the end is an optional
+                <q>Try This</q>
+                section where those who like to get their hands dirty when
+                learning new things can jump in and see how these concepts
+                apply. Don't get too distracted by these sections. If anything
+                goes over your head do not worry as we'll eventually get around
+                to covering the unexplained. Just move on.
             </p>
         </div>
 
@@ -153,8 +173,9 @@
                 <ul>
                     <li>Indexing is zero based, between <code>begin()</code> and <code>end()</code> points. </li>
                     <li>
-                        With non empty region the <code>end()</code> point is exclusive.
+                        With non empty regions the <code>end()</code> point is exclusive.
                         <p><code>Region(0, 2)</code> indexes points: <code>[0, 1]</code></p>
+                        <p><code>Region(0, 1)</code> indexes points: <code>[0]</code></p>
                     </li>
                     <li>
                         <q>empty</q> regions such as those representing a cursor will index characters
@@ -228,8 +249,55 @@
             </div>
         </div>
 
+        <div id="try-this" class='section'>
+            <h2>Try this </h2>
+
+            <p>This is an optional section. If anything goes over your head don't worry.</p>
+
+            <ul>
+                <li>Have Sublime open with a new blank <q>untitled</q> file</li>
+                <li>Type in <q>Hello World</q> and sigh at the lameness of this tradition</li>
+            </ul>
+
+            <ul>
+                <li>Press ctrl and backquote to open the <q>Python</q> console</li>
+            </ul>
+
+            <ul>
+                <li>
+                    Try out the following python in the console ( commented lines begin with <q>#</q> )
+                </li>
+                <li>
+                  <pre class='blackboard' xml:space="preserve"><span class='comment'># Get access to the module containing various Sublime objects
+</span><span class='keyword'>import</span> sublime
+
+<span class='comment'># Create a region that encompasses the beginning "Hello"
+</span>hello_region <span class='keyword'>=</span> <span class='metaFunctionCallPy'>sublime.Region(</span><span class='constant'>0</span><span class='metaFunctionCallPy'>, </span><span class='constant'>5</span><span class='metaFunctionCallPy'>)</span>
+
+<span class='comment'># Print it out
+</span><span class='keyword'>print</span> <span class='metaFunctionCallPy'>view.substr(hello_region)</span>
+
+<span class='comment'># Access the RegionSet managing the view selections
+</span>selection_set <span class='keyword'>=</span> <span class='metaFunctionCallPy'>view.sel()</span>
+
+<span class='comment'># Remove all the selections
+</span><span class='metaFunctionCallPy'>selection_set.clear()</span>
+
+<span class='comment'># Select the "Hello"
+</span><span class='metaFunctionCallPy'>selection_set.add(hello_region)</span></pre>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    If you are so inclined, have a muck around with the <a href="http://www.sublimetext.com/docs/api-reference">API</a> from the console until you get
+                    confused and then read on.
+                </li>
+            </ul>
+        </div>
+
+
         <div id="quiz" class='section'>
-            <h2>Quiz</h2>
+            <h2>Questions</h2>
             <ul>
                 <li>What is a RegionSet in charge of? </li>
                 <li>How many views into a buffer can Sublime have?</li>
