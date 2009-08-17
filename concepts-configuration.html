@@ -58,11 +58,11 @@
             </p>
             <p>
                 It is therefore possible, however <strong>unlikely</strong>, to (silently) lose your customized settings inbetween
-                updates. This is far from ideal but not really that big of a deal as updates aren't really that frequent.
-                 There are some <q>best practices</q> you can follow to minimize the risk.
+                updates. This is far from ideal but not really that big of a deal as updates aren't that frequent.
             </p>
             <p>
-                Some of the settings can be placed in a "User" package which is automatically merged with defaults 
+                There are some <q>best practices</q> you can follow to minimize the risk.
+                Some of the settings can be placed in a <q>User</q> package which is automatically merged with defaults 
                 but in some cases it's impossible to avoid having to manually merge in changes. 
             </p>
             <div>
@@ -75,9 +75,9 @@
                 <p> 
                     A future version of Sublime may include a GUI ( a
                     sad prospect ) for configuration / customization
-                    to make automated mergeing possible.  Until then
+                    to make automated merging possible.  Until then
                     practice <q>safe configuration</q> and enjoy the 
-                    great flexibility.
+                    great flexibility Sublime has to offer.
                 </p>
                 <p>Now that's out of the way let's look at what is customizable and where</p>
             </div>
@@ -94,25 +94,28 @@
             </ul>
         </div>
         
-        <div id="options" class='section'>
-            <h2>Options (*.sublime-option)</h2>
-            <p>These files are plain text ini style.</p>
+        <div id="where" class='section'>
+            <h2>Where?</h2>
+            <div id="options">
+                <h3>Options (*.sublime-option)</h3>
+                <p>These files are plain text ini style.</p>
+            </div>
+            
+            <div id="key-bindings">
+                <h3>Key Bindings (*.sublime-keymap)</h3>
+                <p>
+                    These are all configured in XML
+                </p>
+            </div>
+            
+            <div id="menus">
+                <h3>Menus (*.package-menu, *.sublime-menu)</h3>
+                <p>
+                    These are all configured in XML
+                </p>
+            </div>
         </div>
                 
-        <div id="key-bindings" class='section'>
-            <h2>Key Bindings (*.sublime-keymap)</h2>
-            <p>
-                These are all configured in XML
-            </p>
-        </div>
-        
-        <div id="menus" class='section'>
-            <h2>Menus (*.package-menu, *.sublime-menu)</h2>
-            <p>
-                These are all configured in XML
-            </p>
-        </div>
-        
         <div id="try-this" class='section'>
             <h2>Try this</h2>
             <ul>
