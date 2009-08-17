@@ -26,6 +26,9 @@
                 <li><a href="#packages-path-where">Packages Path. Where?</a></li>
                 <li><a href="#as-zip">As Zip</a></li>
                 <li><a href="#terms">Terms</a></li>
+                <li><a href="#upgrade-rules">Package Upgrade Rules</a></li>
+                
+                
                 <!-- <li><a href="#a-hint">Parting Hint</a></li> -->
                 <!-- <li><a href="#upgrade-rules">Upgrade Rules</a></li> -->
             </ul>
@@ -134,7 +137,7 @@
 
                     <p>%APPDATA%/Sublime Text/Installed Packages</p>
                 </dd>
-                                
+
                 <dt>Orphans</dt>
                 <dd>
                     Orphans are files that were in the old version of a package but no longer
@@ -142,7 +145,29 @@
                 </dd>
             </dl>                
         </div>
-
+        
+        <div id="upgrade-rules" class='section'>
+            <h2>Package Upgrade Rules</h2>
+            <p>For each asset there are <strong>3 versions</strong> used in the merge process</p>
+            <ul>
+                <li>The <q>working</q> version in the Data Directory ( possibly modified by the user) </li>
+                <li>The <q>new</q> version stored in a sublime-package zip archive </li>
+                <li>Tne <q>old</q> version inside an archive in <q>Pristine Packages</q> </li>
+            </ul>
+            
+            <p>For each asset this is the upgrade logic </p>
+            <ul>
+                <li>It is compared for differences between the new and old versions </li>
+                <li>If the asset is an orphan, no longer in the new zip, the working version will be deleted.</li>
+                <li>If an asset is newer the working version will be updated, <strong>silently overwriting user modifications!</strong></li>
+            </ul>
+            <div>
+                <h3>WTF!?</h3>
+                <p>Yeah, you guessed it. You should use version control to manage user modifications.</p>
+                <p>The package upgrade rules are in the process of being updated to take backups before overwriting user modifications</p>
+            </div>
+        </div>
+        
         <div id="try-this" class='section'>
             <h2>Try this</h2>
             <ul>
