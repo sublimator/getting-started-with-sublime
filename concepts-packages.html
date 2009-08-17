@@ -117,7 +117,7 @@
                 <dt id="data-directory">Data Directory</dt>
                 <dd>
                 
-                    The folder where Sublime stores the uncompressed package files and users
+                    The folder where Sublime stores the uncompressed <q>working versions</q> of package files and users
                     generally makes modifications.
 
                     <p>%APPDATA%/Sublime Text/Packages</p>
@@ -127,7 +127,7 @@
                 <dt>Pristine Packages</dt>
                 <dd>
                     Sublime stores pristine (untouched) copies of an xxxx.sublime-package for later
-                    purpose of determining differences between packages between upgrades.
+                    purpose of determining differences between packages on upgrades.
                         <p>%APPDATA%/SublimeText/Pristine Packages</p>
                 </dd>
                 
@@ -150,7 +150,7 @@
             <h2>Package Upgrade Rules</h2>
             <p>For each asset there are <strong>3 versions</strong> used in the merge process</p>
             <ul>
-                <li>The <q>working</q> version in the Data Directory ( possibly modified by the user) </li>
+                <li>The <q>working</q> version in the <q>Data Directory</q> ( possibly modified by the user) </li>
                 <li>The <q>new</q> version stored in a sublime-package zip archive </li>
                 <li>Tne <q>old</q> version inside an archive in <q>Pristine Packages</q> </li>
             </ul>
@@ -163,7 +163,7 @@
             </ul>
             <div>
                 <h3>WTF!?</h3>
-                <p>Yeah, you guessed it. You should use version control to manage user modifications.</p>
+                <p>Yeah, you guessed it. You should use version control and merge tools to manage user modifications.</p>
                 <p>The package upgrade rules are in the process of being updated to take backups before overwriting user modifications</p>
             </div>
         </div>

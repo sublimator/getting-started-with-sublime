@@ -37,6 +37,13 @@
                 keybinding is customizable as are all of the drop down menus. Every thing is configured by editing plain text 
                 files, some structured in xml, others in a very simple <q>ini</q> like format.
             </p>
+            <p>
+                We won't get into too much of the nitty gritty as this
+                <q>Getting Started</q> is supposed to serve as a high
+                level overview without going into too much detail. References
+                will be linked to at the end and we'll walk through setting 
+                your favorite theme / font soon enough.
+            </p>
         </div>
         
         <div id="opening-warning" class='section'>
@@ -56,49 +63,82 @@
             </p>
             <p>
                 Some of the settings can be placed in a "User" package which is automatically merged with defaults 
-                but in some cases it's impossible to avoid having to manually merge in changes. Anyone familiar with 
-                version control will find this quite painless.
+                but in some cases it's impossible to avoid having to manually merge in changes. 
             </p>
             <div>
                 <h3>WTF!? That sounds tedious</h3>
                 <p>
-                    
+                    Pretty much anyone using a text editor should be
+                    using version control and as such most will find the
+                    experience relatively painless.
+                </p>
+                <p> 
                     A future version of Sublime may include a GUI ( a
                     sad prospect ) for configuration / customization
                     to make automated mergeing possible.  Until then
-                    practice <q>safe configuration</q>
-                    
+                    practice <q>safe configuration</q> and enjoy the 
+                    great flexibility.
                 </p>
+                <p>Now that's out of the way let's look at what is customizable and where</p>
             </div>
         </div>
-
+        
+        <div id="what" class='section'>
+            <h2>What?</h2>
+            <ul>
+                <li>keybindings</li>
+                <li>fonts</li>
+                <li>themes</li>
+                <li>drop down menus</li>
+                <li>context menus</li>
+            </ul>
+        </div>
+        
         <div id="options" class='section'>
             <h2>Options (*.sublime-option)</h2>
-            <p>Sublime will make </p>
+            <p>These files are plain text ini style.</p>
         </div>
                 
         <div id="key-bindings" class='section'>
             <h2>Key Bindings (*.sublime-keymap)</h2>
-            <p></p>
+            <p>
+                These are all configured in XML
+            </p>
+        </div>
+        
+        <div id="menus" class='section'>
+            <h2>Menus (*.package-menu, *.sublime-menu)</h2>
+            <p>
+                These are all configured in XML
+            </p>
         </div>
         
         <div id="try-this" class='section'>
             <h2>Try this</h2>
             <ul>
                 <li>Open the python console</li>
+                <li>Create a new view (tab)</li>
                 <li>Type in and evaluate the following python</li>
                 <li>
                     <pre>
-import sublime
+# Set the rulers
+view.options().set('rulers', 80)
 
-# Find the Data directory
-print sublime.packagesPath()
+# Print the current theme in use
+print view.options().get('colorscheme')
 
-# Find where user installed packages go
-print sublime.installedPackagesPath()
+# Print the current syntax in use
+print view.options().get('syntax')
+
+# Print the current font in use
+view.options().get('font')
                     </pre>
                 </li>
             </ul>
+            <div>
+                <h3>Que?</h3>
+            </div>
+            
         </div>
         
         

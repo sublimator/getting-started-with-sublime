@@ -46,7 +46,7 @@
             <p>
 
                 All operations in Sublime are implemented via commands. There are commands
-                related to each of the main objects in the application hierarchy except for projects.
+                related to each of the main objects in the <q>application hierarchy</q> except for projects.
             </p>
             <p>
                 No commands are hardcoded to any particular interface, be it keybinding or menu item.
@@ -82,6 +82,14 @@
 
             <div>
                 <h3>
+                    ApplicationCommand ( Sublime ) examples
+                </h3>
+                <ul>
+                    <li>newWindow</li>
+                </ul>
+            </div>
+            <div>
+                <h3>
                     WindowCommand ( Window ) examples
                 </h3>
                 <ul>
@@ -107,14 +115,24 @@
             <ul>
                 <li>Press ctrl and backquote to open the Python console</li>
                 <li>Try running some view and window commands via the Python API</li>
+                <li><code>view.runCommand(cmd)</code> or <code>window.runCommand(cmd)</code></li>
                 <li>Notice that a view can't run a window command such as <q>new</q></li>
             </ul>
+            
+            <div>
+                <h3>Bonus Points</h3>
+                <ul>
+                    <li><code>import sublime</code></li>
+                    <li><code>sublime.runCommand('newWindow')</code></li>
+                </ul>
+            </div>
 
             <div>
                 <h3>Python API WTF!?</h3>
                 <p>
                     All you need to know at this point is that there is a difference between
                     commands that operate on the window and commands that work on the view.
+                    There are also application level commands such as <q>newWindow</q>
                 </p>
             </div>
 
