@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Orientation: Interface</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+
+<body>
+    <div id="inner">
+        <h1>Orientation: Interface</h1>
+
+        <div class="navigation">
+            <a href="index.html">home</a> | <a href="index.html">prev</a> | <a href="concepts-view.html">next</a>
+        </div>
+
+        <div id="toc">
+            <h2>Table Of Contents</h2>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+            </ul>
+            <ul>
+                <li><a href="#minimap">MiniMap</a></li>
+                <li><a href="#quickpanel">QuickPanel</a></li>
+                <li><a href="#console">Console</a></li>
+            </ul>
+            <ul>
+                <li><a href="#try-this">Try This</a></li>
+                <li><a href="#comments">Comments</a></li>
+            </ul>
+        </div>
+
+        <div id="introduction" class="section">
+            <h2>Introduction</h2>
+            <p>
+                We'll point out some of the interface elements referred to in subsequent sections of this guide.
+                At the end check out the <q>Try This</q> section for exercises.
+            </p>
+        </div>
+
+        <div id="minimap" class='section'>
+            <h2>MiniMap ( see your code from 10,000 feet )</h2>
+            <p>
+                <img src="images/minimaptodo.jpg" />
+            </p>
+            <p>
+                Sublime uses hardware rendering to create a scrollable zoomed out perspective of your code.
+                Along with multiple selections, the mini-map enables an innovative new way of making multiple changes
+                to text at once.
+            </p>
+        </div>
+        
+        <div id="quickpanel" class='section'>
+            <h2>QuickPanel</h2>
+            <p><img src="images/quickpaneltodo.jpg" /></p>
+            <p>
+                The QuickPanel is an overlay list menu. As you type in words any items
+                not containing them are filtered from the list. This <q>quick</q> interface
+                is used for opening projects file and swapping between open files. It it also
+                possible to use it with plugin commands.
+            </p>
+        </div>
+        
+        <div id="console" class='section'>
+            <h2>Console</h2>
+            <p>
+                <img src="images/console.gif" />
+            </p>
+            <p>
+                The console is where you can see all logging and can interact with Sublime by inputting Python code. 
+            </p>
+        </div>
+
+        <div id="try-this" class='section'>
+            <h2>Try this </h2>
+            <ul>
+                <li>Open (or create) a few files</li>
+                <li>Press <strong>ctrl+shift+o</strong> to open the selectFile command which uses QuickPanel for input </li>
+                <li>Swap between files</li>
+            </ul>
+            <ul><li>Toggle the Console with <strong>ctrl+backquote</strong> and watch the output as you save a file</li></ul>
+            <ul>
+                <li>
+                    Toggle the MiniMap with
+                    <strong>alt+m</strong>
+                    and scroll around the document
+                </li>
+                <li>
+                    Move your cursor about and <strong>look to see it moving</strong> in the Mini Map
+                </li>
+            </ul>
+        </div>
+
+        <div id="comments" class='section'>
+            <h2>Comments</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript" src="http://disqus.com/forums/sublimetext/embed.js"></script>
+            <noscript>
+                <a href="http://sublimetext.disqus.com/?url=ref">View the discussion thread.</a>
+            </noscript>
+            <a href="http://disqus.com" class="dsq-brlink">
+                blog comments powered by
+                <span class="logo-disqus">Disqus</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
