@@ -60,12 +60,22 @@
                 is used for opening projects file and swapping between open files. It it also
                 possible to use it with plugin commands.
             </p>
+            <ul>
+                <li>
+                    Negative search can be achieved by prefixing a search token with a <q>-</q> ala
+                    <q>-money</q>
+                </li>
+                <li>
+                    When in <q>file mode</q> the path section of a file is visually indicated with a faded grey 
+                    color. Search terms will not be matched unless a slash is included as part of the token
+                </li>
+            </ul>
         </div>
         
         <div id="console" class='section'>
             <h2>Console</h2>
             <p>
-                <img src="images/console.gif" />
+                <img src="images/console.gif"  />
             </p>
             <p>
                 The console is where you can see all logging and can interact with Sublime by inputting Python code. 
@@ -73,14 +83,21 @@
         </div>
 
         <div id="try-this" class='section'>
-            <h2>Try this </h2>
-            <ul>
+            <h2>Try  this </h2>
+            <h3>QuickPanel</h3>
+            <ol>
                 <li>Open (or create) a few files</li>
                 <li>Press <strong>ctrl+shift+o</strong> to open the selectFile command which uses QuickPanel for input </li>
                 <li>Swap between files</li>
-            </ul>
-            <ul><li>Toggle the Console with <strong>ctrl+backquote</strong> and watch the output as you save a file</li></ul>
-            <ul>
+                <li>Try a negative query by prefixing a -</li>
+                <li>Target a path section of a list item by including a slash in one of the search terms</li>
+            </ol>
+            
+            <h3>Console</h3>
+            <ol><li>Toggle the Console with <strong>ctrl+backquote</strong> and watch the output as you save a file</li></ol>
+            
+            <h3>MiniMap</h3>
+            <ol>
                 <li>
                     Toggle the MiniMap with
                     <strong>alt+m</strong>
@@ -89,10 +106,10 @@
                 <li>
                     Move your cursor about and <strong>look to see it moving</strong> in the Mini Map
                 </li>
-            </ul>
+            </ol>
         </div>
 
-        <div id="comments" class='section'>
+        <!-- <div id="comments" class='section'>
             <h2>Comments</h2>
             <div id="disqus_thread"></div>
             <script type="text/javascript" src="http://disqus.com/forums/sublimetext/embed.js"></script>
@@ -103,7 +120,7 @@
                 blog comments powered by
                 <span class="logo-disqus">Disqus</span>
             </a>
-        </div>
+        </div> -->
     </div>
 </body>
 </html>
