@@ -3,13 +3,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Multiple Selection Concepts</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <style type="text/css" media="screen">
+    
+    </style>
 </head>
 
 <body>
     <div id="inner">
-        <h1></h1>
+        <h1>Multiple Selection Concepts</h1>
 
         <div class="navigation">
     <a href="index.html">home</a> | <a href="concepts-minimap.html">prev</a> | <a href="concepts-textmate.html">next</a>
@@ -19,31 +22,217 @@
         <div id="toc">
             <h2>Table Of Contents</h2>
             <ul>
-                <li><a href="#">XXXXXX</a></li>
+                <li>
+                    <a href="#introduction">Introduction</a>
+                    <ul>
+                        <li>
+                            <a href="#prevailing-conditions">Prevailing Conditions</a>
+                        </li>
+                        <li>
+                            <a href="#better-times-ahead">Better Times Ahead</a>
+                        </li>
+                    </ul>
+                </li>
+                
             </ul>
             <ul>
-                <li><a href="#comments">Quiz</a></li>
+                <li>
+                    <a href="#column-selection">Column Selection</a>
+                    <ul>
+                        <li><a href="#what-s-happening-there">What's happening there?</a></li>
+                        <li><a href="#selectlines">selectLines</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="#find-and-select-all">Find (and select) All Under Cursor</a></li>
+            </ul>
+            <ul>
+                <!-- <li><a href="#try-this">Try This</a></li> -->
+                <!-- <li><a href="#comments">Quiz</a></li> -->
                 <li><a href="#comments">Comments</a></li>
             </ul>
         </div>
 
         <div id="introduction" class="section">
             <h2>Introduction</h2>
+            
+            <h3 id='prevailing-conditions'>Prevailing Conditions</h3>
             <p>
-                XXXXX
+
+                Most editors that implement multiple selections do so
+                in a very limited way, bolted on to an exisiting editor
+                control, implemented via special modes.
+            </p>
+            <p>
+                
+                These are generally limited to column selection and
+                even when they support non-contiguous selections they
+                only enable you to do very basic commands, like cut,
+                paste and character entry. Once selections are made
+                you can not then move the selections around as if each
+                selection was a cursor.
+                
+            </p>
+            <table class="caption">
+                <tr>
+                    <td><img onclick='this.src = this.src' src="images/multi-select-e.gif" /></td>
+                    <td><p> Note that there is only ever one cursor at a time and once selections are made they are immovable</p></td>
+                </tr>
+            </table>
+            <h3 id="better-times-ahead">Better Times Ahead</h3>
+            <p>
+                
+                Sublime was designed from the ground up to be fully
+                capable of using multiple selections so
+                <strong>EVERY</strong> command is available from
+                multiple selections. Unlike most (all?) other editors
+                each selection is moveable.
+
+            </p>
+            <p>
+                They are not just moveable in the basic sense of
+                `pressing left will move each selection one character
+                to the left`, you can do commands like "Move to word
+                ends" which will move each selection differing
+                amounts.
+            </p>
+            <table class="caption">
+                <tr>
+                    <td><img onclick='this.src = this.src' src="images/multi-select-sublime.gif" /></td>
+                    <td><p> Note the multiple cursors and ability to move each, the ability to start from the middle of the column. True multiple selection.</p></td>
+                </tr>
+            </table>
+            <p>
+            
+                This enables a different work-flow. Where before you'd
+                make homogeneous edits via the use of regular
+                expressions and macros with Sublime a lot of the time
+                you can make the edit all at once which not only has a
+                nice <em>controlled feel</em> to it, sometimes it is
+                actually more efficient in terms of key presses.
+                
+            </p>
+            <p>
+                Sublime's search facility has a <q>findAll</q> which will actually
+                <em>select</em> each find instead of highlight them.
+            </p>
+            <p>
+                
+                All this to say, that Sublime acts differently and as such
+                you may need to adjust your habits to get the most out of it.
+                Fortunately it's very easy to do so; multiple selections can be
+                quite an intuitive way of working.
+                
+            </p>
+            <!-- <p>
+                We'll give some tips at how to use multiple selections
+                in place of regular expressions and macros.
+                
+                Note that while Sublime is fully capable of macros
+                including those that make use of multiple selection.
+            </p> -->
+        </div>
+
+        <div id="column-selection" class='section'>
+            <h2>Column Selection</h2>
+            
+            <p>
+                There is no special <q>column selection</q> mode in
+                Sublime rather it's just a label for multiple selections
+                that happen to be aligned.
+            </p>
+            <img onclick='this.src = this.src' src='/images/column-select-nothing-special.gif'/>
+            <div>
+                <h3 id='what-s-happening-there'>What's happening there?</h3>
+                <ul>
+                    <li>Using the command <q>selectLines</q> bound to ctrl+alt+up, ctrl+alt+down</li>
+                    <li>Then ctrl+right to move a word at a time</li>
+                </ul>
+                
+                <div>
+                    <h4 id='selectlines'>selectLines</h4>
+                    <p>
+                        
+                        This command adds a new cursor in a direction
+                        depending on how the command was paramaterised (up or down)
+                    </p>
+                    <p>
+                        It's important to understand the path-finding behaviour
+                        in order to be able to consistently control the command.
+                        It can otherwise be frustrating.
+                    </p>
+                    <p>
+                        
+                        If pressing ctrl+alt+up, an extra cursor will
+                        be added <strong>on the same path as if you pressed up</strong>, with
+                        corresponding similar behaviour when pressing
+                        down.
+                        
+                    </p>
+                    
+                    <table class='caption'>
+                        <tr>
+                            <td><img onclick='this.src = this.src' src="/images/selectLines-behaviour.gif" /></td>    
+                            <td>
+                                <p>(click on images to restart animation)</p>
+                                <ul>
+                                    <li>up (move lines -1)</li>
+                                    <li>up (move lines -1)</li>
+                                    <li>home (moveTo bol)</li>
+                                    <li>down (move lines 1)</li>
+                                    <li>down (move lines 1)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img onclick="this.src = this.src" src="/images/selectLines-behaviour-multi.gif" />
+                            </td>    
+                            <td><p class='caption'>Notice the path?</p></td>    
+                        </tr>
+                        <tr>
+                            <td>
+                                <img onclick="this.src = this.src" src="/images/selectLines-behaviour-choose-your-path.gif" />
+                            </td>    
+                            <td>
+                                <p>
+                                    Choose it wisely ( Bad example of wise choice except the
+                                    <q>save</q>
+                                    by moving inside the column before column selection)
+                                </p>
+                            </td>    
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div id="find-and-select-all" class='section'>
+            <h2>Find (and select) All</h2>
+            <p>
+                The find all command will give you multiple selections with which you can move around with.
             </p>
         </div>
 
-        <div id="quiz" class='section'>
+        <div id="try-this" class='section'>
+            <h2>Try This</h2>
+            <ul>
+                <li>No doubt you have been playing along with the column selection commands. If not, then wtf?, do so!</li>
+            </ul>
+            <ul><li>Select a word and press <strong>alt+f3</strong> to <q>findAllUnder</q> </li></ul>
+        </div>
+
+        <!-- <div id="quiz" class='section'>
             <h2>Quiz</h2>
             <ul>
                 <li>What is XXXX? </li>
                 <li>XXXX?</li>
                 <li>XXXX?</li>
             </ul>
-        </div>
+        </div> -->
 
-        <div id="comments" class='section'>
+        <!-- <div id="comments" class='section'>
             <h2>Comments</h2>
             <div id="disqus_thread"></div>
             <script type="text/javascript" src="http://disqus.com/forums/sublimetext/embed.js"></script>
@@ -54,7 +243,7 @@
                 blog comments powered by
                 <span class="logo-disqus">Disqus</span>
             </a>
-        </div>
+        </div> -->
     </div>
 </body>
 </html>

@@ -9,6 +9,31 @@ body
     color:#7f909f;
 }
 
+/*<![CDATA[*/
+table.caption td
+{
+    vertical-align:top;
+    padding-bottom:2em;
+    padding-left:0;
+}
+
+.caption li
+{
+    list-style:square;
+}
+
+table.caption td:nth-child(even)
+{
+    font-style:italic;
+    width:20em;
+}
+
+/*]]>*/
+.caption img:hover
+{
+    cursor:pointer;
+}
+
 code
 {
     color:#BECDE6;
@@ -38,8 +63,9 @@ a
     color:darkgrey;
 }
 
-ul, ol {
-    margin-bottom: 1.5em;
+ul,ol
+{
+    margin-bottom:1.5em;
 }
 
 li
@@ -47,11 +73,14 @@ li
 /*color:#FF6400;*/
 }
 
-dl {
-    margin-left: 1em;
+dl
+{
+    margin-left:1em;
 }
-dt, dd {
-    margin-bottom: 1em;
+
+dt,dd
+{
+    margin-bottom:1em;
 }
 
 q
@@ -66,7 +95,7 @@ strong
     background-color:#0C3041;
 }
 
-h1,h2,h3
+h1,h2,h3,h4
 {
     color:#8DA6CE;
 }
@@ -84,6 +113,11 @@ p
             margin-top: 0.5em;
 */
     margin-left:1em;
+}
+
+em
+{
+    font-weight:bolder;
 }
 
 img
@@ -217,7 +251,6 @@ pre.blackboard .ocamlPrefixOperator
 {
     color:#8DA6CE;
 }
-
 
 pre.blackboard .latexEnvironment
 {

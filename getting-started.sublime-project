@@ -1,4 +1,7 @@
 <!-- Documentation is available at http://www.sublimetext.com/docs/projects -->
 <project>
-	<mount dir="." direxclude=".svn,.git,.hg, CVS" exclude='*.jpg, *.png, *.gif'/>
+	<mount dir="." direxclude="images,.svn,.git,.hg, CVS" exclude='*.jpg, *.png, *.gif'/>
+	<options><![CDATA[
+pushOnCommit true
+]]></options>
 </project>
