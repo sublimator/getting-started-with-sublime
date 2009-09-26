@@ -9,7 +9,6 @@ body
     color:#7f909f;
 }
 
-/*<![CDATA[*/
 table.caption td
 {
     vertical-align:top;
@@ -28,7 +27,6 @@ table.caption td:nth-child(even)
     width:20em;
 }
 
-/*]]>*/
 .caption img:hover
 {
     cursor:pointer;

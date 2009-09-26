@@ -25,16 +25,10 @@
                 <li>
                     <a href="#introduction">Introduction</a>
                     <ul>
-                        <li>
-                            <a href="#prevailing-conditions">Prevailing Conditions</a>
-                        </li>
-                        <li>
-                            <a href="#better-times-ahead">Better Times Ahead</a>
-                        </li>
-                        <li>
-                            <a href='#true-multiple-selection'>True Multiple Selection.</a>    
-                        </li>
-                        <li><a href="#paradigm-shift">Paradigm Shift</a></li>
+                        <li><a href="#prevailing-conditions">Prevailing Conditions</a></li> 
+                        <li><a href="#better-times-ahead">Better Times Ahead</a></li> 
+                        <li><a href='#true-multiple-selection'>True Multiple Selection.</a></li> 
+                        <li><a href="#paradigm-shift">Paradigm Shift</a></li> 
                     </ul>
                 </li>
                 
@@ -50,6 +44,7 @@
                     <ul>
                         <li><a href="#what-s-happening-there">What's happening there?</a></li>
                         <li><a href="#selectlines">selectLines</a></li>
+                        <li><a href="#python-is-in-the-building">Python Is In The Building</a></li>
                     </ul>
                 </li>
             </ul>
@@ -84,8 +79,19 @@
                 <tr>
                     <td><img onclick='this.src = this.src' src="images/multi-select-e.gif" /></td>
                     <td>
-                        <p>Picking on <a href="http://www.e-texteditor.com/forum/">e-texteditor</a></p>
+                        <p><a target="_blank" href="http://www.e-texteditor.com">e-texteditor</a></p>
                         <p>Note that there is only ever one cursor at a time and once selections are made they are immovable</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img onclick='this.src = this.src' src="images/multi-select-intype.gif" /></td>
+                    <td>
+                        <p><a target="_blank"  href="http://intype.info/">intype</a></p>
+                        <p>
+                            Note the singular cursor and the inability to extend the selections to word ends when using
+                            <span class="binding">ctrl+shift+right</span>
+                        </p>
+                        <p>It just selects <q>columns</q> </p>
                     </td>
                 </tr>
             </table>
@@ -111,8 +117,13 @@
                     <td>
                         <p>
                             Note the multiple cursors and ability to move
-                            each, the starting from the middle of
-                            the column vertically and then extending downwards and upwards.
+                            each.
+                        </p>
+                        <p>
+                            Starting the column in random position vertically and then extending downwards and upwards.
+                        </p>
+                        <p>
+                            Extending selections to word ends.
                         </p>
                     </td>
                 </tr>
@@ -159,14 +170,29 @@
             <h2>KeyBoard Multi Selection</h2>
             <ul>
                 <li>selectLines ( <a href="#column-selection">column selection</a> )</li>
-                <li><q>splitSelectionIntoLines</q> command ( <span class="binding">ctrl+shift+l</span> )</li>
+                <li>splitSelectionIntoLines</li>
             </ul>
+            <div>
+                <h3>splitSelectionIntoLines</h3>
+                <table class='caption'>
+                    <tr>
+                        <td>
+                            <img onclick="this.src = this.src" src="images/splitSelectionsIntoLines.gif" />
+                        </td>
+                        <td style='padding-left:1em'>
+                            Press <span class="binding">ctrl+shift+l</span> to split contiguous selections 
+                            spanning multiple lines into lines.
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
         
         <div id="mouse-selection" class='section'>
             <h2>Mouse Multi Selection</h2>
             <ul>
-                <li><span class='binding'>ctrl+left-click</span> to add selections</li>
+                                <li>
+                <span class='binding'>ctrl+left-click</span> to add selections</li>
                 <li><span class='binding'>alt-left-click</span> to subtract selections</li>
                 <li><span class='binding'>middle-click</span> or <span class='binding'>shift+right-click</span> for <a href="#column-selection">column selection</a> mode</li>
                 <li>Combinations of the above</li>
@@ -202,7 +228,8 @@
                     <p>
                         It's important to understand the path-finding behaviour
                         in order to be able to consistently control the command.
-                        It can otherwise be frustrating.
+                        <strong>Don't be put off. It's actually easy.</strong>
+                        It can just be frustrating if you aren't aware of how it works.
                     </p>
                     <p>
                         
@@ -247,6 +274,22 @@
                             </td>    
                         </tr>
                     </table>
+                    
+                </div>
+                <div>
+                    <h3 id='python-is-in-the-building'>Python Is In The Building</h3>
+                    <p>
+                        Sublime is scriptable so it's possible to write your own auto selection commands.
+                    </p>
+                    <table class='caption'>
+                        <tr>
+                            <td><img onclick='this.src = this.src' src="images/column-autoselect.gif" /></td>    
+                            <td>
+                                <p>Note the ability to start in the middle and the auto path finding behaviour.</p>
+                                <p>It automatically stops on the <q>l</q> and <q>&gt;</q> </p>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -254,7 +297,7 @@
         <div id="find-and-select-all" class='section'>
             <h2>Find (and select) All</h2>
             <p>
-                The <q>findAll</q> command will give you multiple selections with which you can move around and see each edit.
+                The <q>findAll</q> command will give you multiple selections with which you can move around and see each replacement.
                 The <a href="concepts-minimap.html">minimap</a> is especially handy.
             </p>
         </div>
@@ -264,7 +307,7 @@
             <ul>
                 <li>No doubt you have been playing along with the column selection commands. If not, then wtf?, do so!</li>
                 <li>Try and <a href="#upwards-outwards">select some columns.</a></li>
-                <li>Try the split <q>splitSelectionIntoLines</q> <a href="#keyboard-selection">command</a> </li>
+                <li>Try the <q>splitSelectionIntoLines</q> <a href="#keyboard-selection">command</a> </li>
             </ul>
             <ul><li>Select a word and press <span class='binding'>alt+f3</span> to <q>findAllUnder</q> look </li></ul>
         </div>
