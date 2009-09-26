@@ -31,9 +31,18 @@
                         <li>
                             <a href="#better-times-ahead">Better Times Ahead</a>
                         </li>
+                        <li>
+                            <a href='#true-multiple-selection'>True multiple selection.</a>    
+                        </li>
+                        <li><a href="#paradigm-shift">Paradigm Shift</a></li>
                     </ul>
                 </li>
                 
+            </ul>
+            <ul>
+                <li><a href="#mouse-selection">Mouse Selection</a></li>
+                <li><a href="#keyboard-selection">KeyBoard Selection</a></li>
+                <li><a href="#find-and-select-all">Find (and select) All</a></li>
             </ul>
             <ul>
                 <li>
@@ -45,10 +54,7 @@
                 </li>
             </ul>
             <ul>
-                <li><a href="#find-and-select-all">Find (and select) All</a></li>
-            </ul>
-            <ul>
-                <!-- <li><a href="#try-this">Try This</a></li> -->
+                <li><a href="#try-this">Try This</a></li>
                 <!-- <li><a href="#comments">Quiz</a></li> -->
                 <li><a href="#comments">Comments</a></li>
             </ul>
@@ -77,7 +83,10 @@
             <table class="caption">
                 <tr>
                     <td><img onclick='this.src = this.src' src="images/multi-select-e.gif" /></td>
-                    <td><p> Note that there is only ever one cursor at a time and once selections are made they are immovable</p></td>
+                    <td>
+                        <p>Picking on <a href="http://www.e-texteditor.com/forum/">e-texteditor</a></p>
+                        <p>Note that there is only ever one cursor at a time and once selections are made they are immovable</p>
+                    </td>
                 </tr>
             </table>
             <h3 id="better-times-ahead">Better Times Ahead</h3>
@@ -91,21 +100,28 @@
 
             </p>
             <p>
-                They are not just moveable in the basic sense of
-                `pressing left will move each selection one character
-                to the left`, you can do commands like "Move to word
-                ends" which will move each selection differing
-                amounts.
+                They are not just moveable in the basic sense of each cursor moving the same amount,
+                you can do commands like <q>move to word ends</q> which will move each selection
+                <em>differing amounts</em>. This allows the selections to transcend mere detail and 
+                follow the underlying structure.
             </p>
             <table class="caption">
                 <tr>
                     <td><img onclick='this.src = this.src' src="images/multi-select-sublime.gif" /></td>
-                    <td><p> Note the multiple cursors and ability to move each, the ability to start from the middle of the column. True multiple selection.</p></td>
+                    <td>
+                        <p>
+                        
+                            Note the multiple cursors and ability to move
+                            each, the starting from the middle of
+                            the column and extending in each direction. 
+                        </p>
+                    </td>
                 </tr>
             </table>
+            <h3 id='true-multiple-selection'>True multiple selection.</h3>
             <p>
             
-                This enables a different work-flow. Where before you'd
+                This enables a different workflow. Where before you'd
                 make homogeneous edits via the use of regular
                 expressions and macros with Sublime a lot of the time
                 you can make the edit all at once which not only has a
@@ -114,12 +130,18 @@
                 
             </p>
             <p>
-                Sublime's search facility has a <q>findAll</q> which will actually
-                <em>select</em> each find instead of highlight them.
+                Sublime's search facility has a <q>findAll</q> command which will actually
+                <em>select</em> each find instead of highlight them.  
+                
+                The mini-map with which you 
+                can see/feel what is happening with your multiple 
+                selections really comes into its own.
             </p>
+            <h3 id="paradigm-shift">Paradigm Shift</h3>
+
             <p>
                 
-                All this to say, that Sublime acts differently and as such
+                All this to say that Sublime acts differently and as such
                 you may need to adjust your habits to get the most out of it.
                 Fortunately it's very easy to do so; multiple selections can be
                 quite an intuitive way of working.
@@ -134,13 +156,32 @@
             </p> -->
         </div>
 
+        <div id="keyboard-selection" class='section'>
+            <h2>KeyBoard Selection</h2>
+            <ul>
+                <li>selectLines ( <a href="#column-selection">column selection</a> )</li>
+                <li><q>splitSelectionIntoLines</q> command ( <span class="binding">ctrl+shift+l</span> )</li>
+            </ul>
+        </div>
+        
+        <div id="mouse-selection" class='section'>
+            <h2>Mouse Selection</h2>
+            <ul>
+                <li><span class='binding'>ctrl+left-click</span> to add selections</li>
+                <li><span class='binding'>alt-left-click</span> to subtract selections</li>
+                <li><span class='binding'>middle-click</span> or <span class='binding'>shift+right-click</span> for <a href="#column-selection">column selection</a> mode</li>
+                <li>Combinations of the above</li>
+            </ul>
+        </div>
+        
         <div id="column-selection" class='section'>
             <h2>Column Selection</h2>
             
             <p>
                 There is no special <q>column selection</q> mode in
-                Sublime rather it's just a label for multiple selections
-                that happen to be aligned.
+                Sublime. Rather it's just a label for multiple selections
+                that happen to be aligned. Multiple selections are the default
+                modus operandi.
             </p>
             <img onclick='this.src = this.src' src='images/column-select-nothing-special.gif'/>
             <div>
@@ -150,11 +191,13 @@
                     <li>Then ctrl+right to move a word at a time</li>
                 </ul>
                 
+                <p><strong>To select columns from the keyboard you first select vertically and then horizontally</strong> </p>
+                
                 <div>
                     <h4 id='selectlines'>selectLines</h4>
                     <p>
                         
-                        This command adds a new cursor in a direction
+                        This (keyboard driven) command adds a new cursor in a direction
                         depending on how the command was paramaterised (up or down)
                     </p>
                     <p>
@@ -164,18 +207,19 @@
                     </p>
                     <p>
                         
-                        If pressing ctrl+alt+up, an extra cursor will
+                        If pressing <span class='binding'>ctrl+alt+up</span>, an extra cursor will
                         be added <strong>on the same path as if you pressed up</strong>, with
                         corresponding similar behaviour when pressing
                         down.
                         
                     </p>
                     
+                    <h4>Movement Paths (click on images to restart animation)</h4>
+                    
                     <table class='caption'>
                         <tr>
                             <td><img onclick='this.src = this.src' src="images/selectLines-behaviour.gif" /></td>    
                             <td>
-                                <p>(click on images to restart animation)</p>
                                 <ul>
                                     <li>up (move lines -1)</li>
                                     <li>up (move lines -1)</li>
@@ -189,7 +233,7 @@
                             <td>
                                 <img onclick="this.src = this.src" src="images/selectLines-behaviour-multi.gif" />
                             </td>    
-                            <td><p class='caption'>Using <q>selectLines</q>. Notice the same path?</p></td>    
+                            <td><p class='caption'>Using <q>selectLines</q>. Notice the same path? You must choose your paths wisely</p></td>    
                         </tr>
                         <tr>
                             <td>
@@ -197,9 +241,9 @@
                             </td>    
                             <td>
                                 <p>
-                                    Choose your paths wisely ( Bad example of wise choice except the
+                                    Bad example of wise choice except the
                                     <q>save</q>
-                                    by moving inside the column before column selection)
+                                    by moving inside the column before column selection
                                 </p>
                             </td>    
                         </tr>
@@ -207,11 +251,12 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="find-and-select-all" class='section'>
             <h2>Find (and select) All</h2>
             <p>
-                The find all command will give you multiple selections with which you can move around with.
+                The <q>findAll</q> command will give you multiple selections with which you can move around and see each edit.
+                The <a href="concepts-minimap.html">minimap</a> is especially handy.
             </p>
         </div>
 
@@ -219,8 +264,10 @@
             <h2>Try This</h2>
             <ul>
                 <li>No doubt you have been playing along with the column selection commands. If not, then wtf?, do so!</li>
+                <li>Try and <a href="#upwards-outwards">select some columns.</a></li>
+                <li>Try the split <q>splitSelectionIntoLines</q> <a href="#keyboard-selection">command</a> </li>
             </ul>
-            <ul><li>Select a word and press <strong>alt+f3</strong> to <q>findAllUnder</q> </li></ul>
+            <ul><li>Select a word and press <span class='binding'>alt+f3</span> to <q>findAllUnder</q> </li></ul>
         </div>
 
         <!-- <div id="quiz" class='section'>

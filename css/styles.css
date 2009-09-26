@@ -95,6 +95,11 @@ strong
     background-color:#0C3041;
 }
 
+
+span.binding {
+    
+}
+
 h1,h2,h3,h4
 {
     color:#8DA6CE;
@@ -118,6 +123,7 @@ p
 em
 {
     font-weight:bolder;
+    font-size: larger;
 }
 
 img
@@ -167,7 +173,7 @@ pre.blackboard .constant
     color:#D8FA3C;
 }
 
-pre.blackboard .entity
+pre.blackboard .entity, span.binding
 {
     color:#FF6400;
 }
