@@ -3,13 +3,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>TextMate Compatibility</title>
+    <title>Getting Comfortable</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <style type="text/css" media="screen">
+        table.caption td {
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
     <div id="inner">
-        <h1>Sublime Command Concepts</h1>
+        <h1>Getting Comfortable</h1>
 
         <div class="navigation">
             <a href="index.html">home</a> | <a href="concepts-textmate.html">prev</a> | <a href="walkthrough-plugin.html">next</a>
@@ -21,8 +26,9 @@
                 <li><a href="#introduction">Introduction</a></li>
             </ul>
             <ul>
-                <li><a href="#command-types">Command Types</a></li>
-                <li><a href="#try-this">Try This</a></li>
+                <li><a href="#favorite-editing-font">Favorite Editing Font</a></li>
+                <li><a href="#favorite-theme">Favorite Theme</a></li>
+                <li><a href="#quickpanel-monospace">QuickPanel Monospace</a></li>
             </ul>
             <ul>
                 <!-- <li><a href="#comments">Quiz</a></li> -->
@@ -33,110 +39,66 @@
         <div id="introduction" class="section">
             <h2>Introduction</h2>
             <p>
-
-                All operations in Sublime are implemented via commands. There are commands
-                related to each of the main objects in the <q>application hierarchy</q> except for projects.
+                Hopefully you have worked your way through the
+                preceding concepts section. 
+                
+                Even if you are overloaded with details you can't
+                recall you'll hopefully know where to find reminders.
             </p>
             <p>
-                No commands are hardcoded to any particular interface, be it keybinding or menu item.
+                If you've just jumped right to this section that's
+                cool, we'll try and  cater for you but there's
+                nothing quite like doing surveillance before dropping the
+                troops in.
             </p>
             <p>
-                There are many internal core commands and they can
-                also be created with Python plugins.
+                We are going to look at setting up your favorite font
+                and using a monospace font for the QuickPanel.
             </p>
         </div>
 
-        <div id='command-types' class='section'>
-            <h2>Command Types</h2>
-            <table>
-                <tr>
-                    <td>Sublime</td>
-                    <td>ApplicationCommand</td>
-                </tr>
-                <tr>
-                    <td>Window</td>
-                    <td>WindowCommand</td>
-                </tr>
-                <tr>
-                    <td>View</td>
-                    <td>TextCommand</td>
-                </tr>
-            </table>
-
-            <!-- <ul>
-                <li>Sublime ( Application )</li>
-                <li>Window  ( Window ) </li>
-                <li>View    ( Text ) </li>
-            </ul> -->
-
-            <div>
-                <h3>
-                    ApplicationCommand ( Sublime ) examples
-                </h3>
-                <ul>
-                    <li>newWindow</li>
-                </ul>
-            </div>
-            <div>
-                <h3>
-                    WindowCommand ( Window ) examples
-                </h3>
-                <ul>
-                    <li>open</li>
-                    <li>save</li>
-                    <li>exit</li>
-                </ul>
-            </div>
-            <div>
-                <h3>
-                    TextCommand ( View ) examples
-                </h3>
-                <ul>
-                    <li>cut</li>
-                    <li>paste</li>
-                    <!-- <li>insertCharacters</li> -->
-                </ul>
-            </div>
-        </div>
-
-        <div id="try-this" class='section'>
-            <h2>Try this </h2>
+        <div id="favorite-editing-font" class='section'>
+            <h2>Favorite Editing Font</h2>
+            
+            <p>Setting up your favorite font globally is as simple as opening the <q>User </q> File Preferences.</p>
+            <img src='images/preferences-menu.jpg' />
+            <img src='images/favorite-font.gif' />
+            <p>Per-font anti-aliasing can be specified, by appending option to the name:</p>
             <ul>
-                <li>Press ctrl and backquote to open the Python console</li>
-                <li>Try running some view and window commands via the Python API</li>
-                <li><code>view.runCommand(cmd)</code> or <code>window.runCommand(cmd)</code></li>
-                <li>Notice that a view can't run a window command such as <q>new</q></li>
+                <li>:noantialias</li>
+                <li>:standardantialias</li>
+                <li>:cleartypeantialias</li>
             </ul>
             
-            <div>
-                <h3>Bonus Points</h3>
-                <ul>
-                    <li><code>import sublime</code></li>
-                    <li><code>sublime.runCommand('newWindow')</code></li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>Python API WTF!?</h3>
-                <p>
-                    All you need to know at this point is that there is a difference between
-                    commands that operate on the window and commands that work on the view.
-                    There are also application level commands such as <q>newWindow</q>
-                </p>
-            </div>
-
-            <img src="images/trythis-commands.gif" />
+            <img src='images/font-options.gif' />
+            
+            <p>
+                If you'd like to set different fonts for different languages then look in the <q>Per-type</q> preferences
+            </p>
+            <img src='images/preferences-per-filetype.jpg' />
         </div>
+       
+       <div id="favorite-theme" class='section'>
+           <h2>Favorite Theme</h2>
+           <p>This is very easy to do and it's quite obvious how.</p>
+           <img src='images/favorite-theme.jpg' />
+           <p>
+               What's not so obvious is that Sublime can set up themes per filetype.
+           </p>
+           <img src='images/colorscheme-per-filetype.gif' />
+       </div>
 
-
-        <!-- <div id="quiz" class='section'>
-            <h2>Quiz</h2>
-            <ul>
-                <li>What is XXXX? </li>
-                <li>XXXX?</li>
-                <li>XXXX?</li>
-            </ul>
-        </div> -->
+       <div id="quickpanel-monospace" class='section'>
+           <h2>QuickPanel Monospace</h2>
+           <p>
+               This one isn't available from the preferences menu (yet).
+            </p>
+            <p>
+                Open up <q>%APPDATA%\SublimeText\Packages\Theme - Default\Default.sublime-theme</q>
+                and make the edits as seen below adjusting to taste.
+            </p>
+           <img src='images/quickpanel-monospace.gif' />
+       </div>
 
         <div id="comments" class='section'>
             <h2>Comments</h2>
