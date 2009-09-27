@@ -29,6 +29,7 @@
                 <li><a href="#favorite-editing-font">Favorite Editing Font</a></li>
                 <li><a href="#favorite-theme">Favorite Theme</a></li>
                 <li><a href="#quickpanel-monospace">QuickPanel Monospace</a></li>
+                <li><a href="#key-bindings">Key Bindings</a></li>
             </ul>
             <ul>
                 <!-- <li><a href="#comments">Quiz</a></li> -->
@@ -98,6 +99,36 @@
                 and make the edits as seen below adjusting to taste.
             </p>
            <img src='images/quickpanel-monospace.gif' />
+       </div>
+       
+       <div id="key-bindings" class='section'>
+           <h2>Key Bindings <strong>(in progress)</strong></h2> 
+           <p>
+               Sublime has very rich keybinding declarations. Almost all of
+               the bindings are fully customizable ( the exception
+               being some QuickPanel and FindPanel navigation commands which hard bind up/down/tab to move between fields ).
+           </p>
+           <p>All paths mentioned below are relative to the Packages dir (typically <q>%APPDATA%\Sublime Text\Packages</q>)</p>
+           
+           <div>
+               <h3>Notes</h3>
+               <ul>
+                   <li>Note that <strong>each</strong> folder in the Packages dir has a Default.sublime-keymap </li>
+                   <li>The <em>Default</em> is actually a global option <q>keymap</q> set in <q>Default\Options\Application.sublime-options</q> </li>
+                   <li>Open the <q>Default\Default.sublime-keymap</q> which contains some instructions for setting bindings</li>
+                   <li>To lessen the frequency of manually merging bindings files on update you should copy/paste any bindings you change
+                        in the <q>Default/Default.sublime-keymap</q> into the <q>User/Default.sublime-keymap</q></li>
+                    <li>Bindings files are loaded in alphabetical order with those loaded afterwards taking precedence so by virtue of this simple fact <q>User</q> overrides <q>Default</q></li>
+                    <li>Likewise bindings set bottom most in an individual file override those set at the top</li>
+               </ul>
+           </div>
+           <div>
+               <h3>Contexts</h3>
+               <ul>
+                   <li><a href="http://www.sublimetext.com/forum/viewtopic.php?f=5&amp;t=67&amp;p=367">Regex Contexts</a>  </li>
+               </ul>
+           </div>
+
        </div>
 
         <div id="comments" class='section'>
