@@ -149,7 +149,7 @@
                 <li>Create a new view (tab)</li>
                 <li>Type in and evaluate the following python</li>
                 <li>
-                    <pre>
+                    <!-- <pre>
 # Set the rulers
 view.options().set('rulers', 80)
 
@@ -161,7 +161,18 @@ print view.options().get('syntax')
 
 # Print the current font in use
 view.options().get('font')
-                    </pre>
+                    </pre> -->
+                    <pre class='blackboard'><span class='None'><span class='comment'><span class='comment'>#</span> Set the rulers
+</span><span class='metaFunctionCallPython'>view.options<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'>)</span></span>.<span class='metaFunctionCallPython'>set<span class='metaFunctionCallPython'>(</span><span class='string'><span class='string'>'</span></span><span class='metaFunctionCallPython'><span class='string'>rulers<span class='string'>'</span></span>, <span class='constant'>80</span></span><span class='metaFunctionCallPython'>)</span></span>
+
+<span class='comment'><span class='comment'>#</span> Print the current theme in use
+</span><span class='keyword'>print</span> <span class='metaFunctionCallPython'>view.options<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'>)</span></span>.<span class='metaFunctionCallPython'>get<span class='metaFunctionCallPython'>(</span><span class='string'><span class='string'>'</span></span><span class='metaFunctionCallPython'><span class='string'>colorscheme<span class='string'>'</span></span></span><span class='metaFunctionCallPython'>)</span></span>
+
+<span class='comment'><span class='comment'>#</span> Print the current syntax in use
+</span><span class='keyword'>print</span> <span class='metaFunctionCallPython'>view.options<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'>)</span></span>.<span class='metaFunctionCallPython'>get<span class='metaFunctionCallPython'>(</span><span class='string'><span class='string'>'</span></span><span class='metaFunctionCallPython'><span class='string'>syntax<span class='string'>'</span></span></span><span class='metaFunctionCallPython'>)</span></span>
+
+<span class='comment'><span class='comment'>#</span> Print the current font in use
+</span><span class='metaFunctionCallPython'>view.options<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'>)</span></span>.<span class='metaFunctionCallPython'>get<span class='metaFunctionCallPython'>(</span><span class='string'><span class='string'>'</span></span><span class='metaFunctionCallPython'><span class='string'>font<span class='string'>'</span></span></span><span class='metaFunctionCallPython'>)</span></span></span></pre>
                 </li>
             </ul>
             </div>

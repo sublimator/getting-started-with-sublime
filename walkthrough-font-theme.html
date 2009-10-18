@@ -122,11 +122,68 @@
            <div>
                <h3>Contexts</h3>
                <ul>
+                   <li><a href="http://www.sublimetext.com/docs/contexts">Official Contexts Docs</a></li>
                    <li><a href="http://www.sublimetext.com/forum/viewtopic.php?f=5&amp;t=67&amp;p=367">Regex Contexts</a>  </li>
                </ul>
            </div>
-
+           
+           
+           
+           
+           
+           
+           <div>
+               <h3>Conflict Resolution</h3>
+               
+               <p>For &lt;bindings&gt; there is actually no conflict resolution whatsoever.</p>
+               
+               <h4>Loading Bindings</h4>
+               
+               <p>
+                   It loads each Package's Default.sublime-keymap in
+                   alphabetical order and from top to bottom within each
+                   file collecting all the &lt;bindings&gt; in one big list
+               </p>
+               <ol>
+                    <li><q>A/Default.sublime-keymap</q> top of file</li>
+                    <li><q>A/Default.sublime-keymap</q> bottom of file</li>
+                    <li>..</li>
+                    <li>..</li>
+                    <li>..</li>
+                    <li><q>Z/Default.sublime-keymap</q> bottom of file</li>
+               </ol>
+               
+               <h4>Matching Bindings</h4>
+               <p>
+                   When looking for a binding that matches it will
+                   start from the top of the big list mentioned
+                   above, (Z/Default.sublime-keymap) working from the
+                   last binding to the first. It takes the first one
+                   that matches and runs the bound command.
+                </p>
+               
+                <ol>
+                    <li><q>Z</q> bottom of last file loaded</li>
+                    <li>..</li>
+                    <li>..</li>
+                    <li>..</li>
+                    <li><q>A</q> top of first file loaded.</li>
+                </ol>
+               
+               <h4>Interpackage Conflicts</h4>
+               
+               <p>
+                   This means that you should put your most specific
+                   keybindings at the end of your sublime-keymap files and
+                   where possible give it a scope specific to the Package
+                   to avoid inter package conflict. ie python snippets
+                   should use
+                   
+                   <pre class='blackboard'><span class='None'><span class='metaTag'><span class='metaTag'>&lt;</span><span class='metaTag'>context</span> <span class='metaTag'>name</span>=<span class='string'><span class='string'>"</span>selector<span class='string'>"</span></span> <span class='metaTag'>value</span>=<span class='string'><span class='string'>"</span>source.python<span class='string'>"</span></span><span class='metaTag'>/&gt;</span></span></span></pre>
+               </p>
+           </div>
        </div>
+
 
         <div id="comments" class='section'>
             <h2>Comments</h2>

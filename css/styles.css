@@ -155,128 +155,128 @@ div.section div
     margin-left:1em;
 }
 
-pre.blackboard
+.blackboard
 {
     background-color:#0C1021;
     color:#F8F8F8;
 }
 
-pre.blackboard .comment
+.blackboard .comment
 {
     color:#AEAEAE;
 }
 
-pre.blackboard .constant
+.blackboard .constant
 {
     color:#D8FA3C;
 }
 
-pre.blackboard .entity, span.binding
+.blackboard .entity, span.binding
 {
     color:#FF6400;
 }
 
-pre.blackboard .keyword
+.blackboard .keyword
 {
     color:#FBDE2D;
 }
 
-pre.blackboard .storage
+.blackboard .storage
 {
     color:#FBDE2D;
 }
 
-pre.blackboard .string
+.blackboard .string
 {
     color:#61CE3C;
 }
 
-pre.blackboard .support
+.blackboard .support
 {
     color:#8DA6CE;
 }
 
-pre.blackboard .variable
+.blackboard .variable
 {
 }
 
-pre.blackboard .invalidDeprecated
+.blackboard .invalidDeprecated
 {
     color:#AB2A1D;
 }
 
-pre.blackboard .invalidIllegal
+.blackboard .invalidIllegal
 {
     background-color:#9D1E15;
     color:#F8F8F8;
 }
 
-pre.blackboard .superclass
+.blackboard .superclass
 {
     color:#FF6400;
 }
 
-pre.blackboard .stringInterpolation
+.blackboard .stringInterpolation
 {
     color:#FF6400;
 }
 
-pre.blackboard .metaFunctionCallPy
+.blackboard .metaFunctionCallPy
 {
     color:#BECDE6;
 }
 
-pre.blackboard .metaTag
+.blackboard .metaTag
 {
     color:#7F90AA;
 }
 
-pre.blackboard .entityNameSection
+.blackboard .entityNameSection
 {
     color:#FFF;
 }
 
-pre.blackboard .ocamlVariant
+.blackboard .ocamlVariant
 {
     color:#D5E0F3;
 }
 
-pre.blackboard .ocamlOperator
+.blackboard .ocamlOperator
 {
     color:#F8F8F8;
 }
 
-pre.blackboard .ocamlInfixOperator
+.blackboard .ocamlInfixOperator
 {
     color:#8DA6CE;
 }
 
-pre.blackboard .ocamlPrefixOperator
+.blackboard .ocamlPrefixOperator
 {
     color:#8DA6CE;
 }
 
-pre.blackboard .latexEnvironment
+.blackboard .latexEnvironment
 {
     background-color:#FFFFFF08;
 }
 
-pre.blackboard .latexEnvironmentNested
+.blackboard .latexEnvironmentNested
 {
     background-color:#7A96FA08;
 }
 
-pre.blackboard .latexSupport
+.blackboard .latexSupport
 {
     color:#FBDE2D;
 }
 
-pre.blackboard .plistUnquotedString
+.blackboard .plistUnquotedString
 {
     color:#FFF;
 }
 
-pre.blackboard .lineNumber
+.blackboard .lineNumber
 {
     color:#7f909f;
 }
