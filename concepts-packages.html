@@ -159,18 +159,15 @@
             <ul>
                 <li>It is compared for differences between the new and old versions </li>
                 <li>If the asset is an orphan, no longer in the new zip, the working version will be deleted</li>
-                <li>If an asset is newer the working version will be updated, <strong>silently overwriting user modifications!</strong></li>
+                <li>If an asset is newer the working version will be updated, (backing up user modifications)</li>
             </ul>
             <div>
-                <h3>WTF!?</h3>
-                <p>Yeah, you guessed it. You should use version control and merge tools to manage user modifications.</p>
-                <p>The package upgrade rules are in the process of being updated to take backups before overwriting user modifications</p>
-                <p> <strong>UPDATE:</strong>
-                    As of the 1.2 beta released in 
-                    <a href="http://www.sublimetext.com/forum/viewtopic.php?f=2&amp;t=605#p2261">2009-09-22</a>
-                    the user files will be backed up to a folder at <q>%APPDATA%/Sublime Text/Backup</q> which mirrors the directory
+                <h3>Backups</h3>
+                <p>
+                    The user files will be backed up to a folder at <q>%APPDATA%/Sublime Text/Backup</q> which mirrors the directory
                     structure of the working versions Packages directory.
                 </p>
+                <p>You can also use version control and merge tools to manage user modifications.</p>
             </div>
         </div>
         

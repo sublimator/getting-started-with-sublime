@@ -50,16 +50,21 @@
         <div id="opening-warning" class='section'>
             <h2>Opening Warning</h2>
             <p>
-                It is <strong>HIGHLY</strong> recommended to put your <a href="concepts-packages.html#data-directory">data directory</a> under version control.
-                <strong>Commit before every update</strong> of Sublime.
-                At the time of writing the Package
-                <!-- <a href="concepts-packages.html"></a> -->
-                upgrade rules don't account for user modifications to packages
-                that ship with Sublime. eg changes to assets in the <q>Python</q> package that comes with Sublime.
+                It is recommended to put your <a href="concepts-packages.html#data-directory">data directory</a> under version control.
+                and <strong>commit before every update</strong> of Sublime.
             </p>
             <p>
-                It is therefore possible, however <strong>unlikely</strong>, to (silently) lose your customized settings inbetween
-                updates. This is far from ideal but not really that big of a deal as updates aren't that frequent.
+                See
+                <a href="concepts-packages.html#upgrade-rules">upgrade rules</a>
+                for details but the short of
+                it is that it is possible, however
+                <strong>unlikely</strong>
+                , to lose your customized
+                settings inbetween updates (these
+                <strong>are</strong>
+                backed up but it may be more convenient to use version
+                control ).
+                This isn't ideal but not really that big of a deal as updates aren't that frequent.
             </p>
             <p>
                 There are some <q>best practices</q> you can follow to minimize the risk.
@@ -67,7 +72,7 @@
                 but in some cases it's impossible to avoid having to manually merge in changes. 
             </p>
             <div>
-                <h3>WTF!? That sounds tedious</h3>
+                <h3>That sounds tedious</h3>
                 <p>
                     Pretty much anyone using a text editor should be
                     using version control and as such most will find the
@@ -81,15 +86,6 @@
                     great flexibility Sublime has to offer.
                 </p>
                 <p>Now that's out of the way let's look at what is customizable and where</p>
-                <p>
-                    <strong>UPDATE:</strong>
-                    As of the 1.2 beta released in
-                    <a href="http://www.sublimetext.com/forum/viewtopic.php?f=2&amp;t=605#p2261">2009-09-22</a>
-                    the user files will be backed up to a folder at
-                    <q>%APPDATA%/Sublime Text/Backup</q>
-                    which mirrors the directory
-                                    structure of the working versions Packages directory.
-                </p>
             </div>
         </div>
         
