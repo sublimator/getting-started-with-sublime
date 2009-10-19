@@ -5,6 +5,17 @@
 <head>
     <title>Walkthrough - Writing A Plugin</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <style type="text/css" media="screen">
+        pre.blackboard.excerpt {
+            margin-left:2em;
+        }
+        #class-command-mapping th{
+            text-align: left;
+        }
+        #class-command-mapping {
+            width: 500px;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,10 +32,19 @@
                 <li><a href="#introduction">Introduction</a></li>
             </ul>
             <ul>
-
+                <li>
+                    <a href="#reverse-selection-directions">Reverse Selection Directions</a>
+                    <ul>
+                        <li><a href="#what-we-ll-be-making">What we'll be making</a></li>
+                        <li><a href="#starting-off">Starting Off</a></li>
+                        <li><a href="#breaking-it-down">Breaking It Down</a></li>
+                        <li><a href="#setting-up-a-keybinding">Setting up a keybinding</a></li>
+                        <li><a href="#writing-the-actual-command">Writing the actual command</a></li>                        
+                    </ul>
+                </li>
             </ul>
             <ul>
-                <li><a href="#try-this">Try This</a></li>
+                <!-- <li><a href="#try-this">Try This</a></li> -->
                 <!-- <li><a href="#comments">Quiz</a></li> -->
                 <li><a href="#comments">Comments</a></li>
             </ul>
@@ -33,13 +53,219 @@
         <div id="introduction" class="section">
             <h2>Introduction</h2>
             <p>
-                Coming Soon.
+                One of the many great features Sublime has is the
+                ability to write extensions using the <a
+                href="http://www.python.org/">python</a> programming
+                language. If you don't know python there are <a href="
+                http://www.google.com/search?q=learn+python">many
+                great resources</a>  on the internet for learning.
+                I'll try to point out any features used unique to
+                python along the way so if you are already a
+                programmer it should be easy enough to follow along.
+            </p>
+            <p>
+                We'll take a look at creating a few plugins. The
+                first, a very basic, though <strong>very</strong>
+                useful command will reverse the directions of each
+                selection so commands that extend in the prevailing
+                direction can be better controlled.
+            </p>
+            <p>
+                The next one will be a command that first takes an
+                input  from the user to use as a cmd string then runs
+                a subprocess in a background thread, finally
+                displaying the stderr/stdout results in a new tab. This
+                will use 
+                <pan class='blackboard'>
+                    <span class="metaFunctionCallPython">sublime.setTimeout(f, ms)</span>
+                </pan>
+                which very easily allows functions to be called from a bg thread
+                in a blocking call inside the main; a very useful technique.
             </p>
         </div>
 
-        <div id="try-this" class='section'>
-            <h2>Try this </h2>
+        <div id="reverse-selection-directions" class='section'>
+            <h2>Reverse Selection Directions</h2>
+            <p>
+                If you haven't already, then take a squiz at <a href="concepts-view.html">view concepts</a> section of this guide.
+                You should also be roughly acquainted with <a href="concepts-packages.html">packages</a> and <a href="concepts-configuration.html">configuration</a>.
+            </p>
+            <div>
+                <h3>What we'll be making</h3>
+                <table class="caption">
+                    <tr>
+                        <td>
+                            <img src="images/reverse-directions.gif" />
+                        </td>
+                        <td>
+                            <p>Poor example of what you'd use it for but the purpose is to show
+                        the flipping of the directions.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>Starting Off</h3>
+                
+                <ol>
+                    <li>
+                        Run the
+                        <span class="binding">Tools-&gt;New Plugin</span>
+                        command which will create a new file with a plugin template
+                        
+                        <p><img src="images/tools-new-plugin.gif" /></p>
+                        <p><img src="images/tools-new-plugin-template.gif" /></p>
+                        
+                    </li>
+                    <li>
+                        Save it as something like
+                        <q>Packages/User/reverseselections.py</q>
+                    </li>
+                </ol>
+            </div>
+            
+            <div>
+                <h3>Breaking It Down</h3>
+                <p>Look at the first line:</p>
+                <pre class='blackboard excerpt'><span class='None'><span class='keyword'>import</span> sublime, sublimeplugin</span></pre>
+                <p>
+                    This tells python we want to access functions, classes and other objects from these namespaces.
+                    <q>sublime</q>
+                    contains the core classes representing regions etc, and sublimeplugin, the base classes for plugins.
+                </p>
+                <p>The next non commented line:</p>
+                <div>
+                    <!--<pre>class SampleCommand(sublimeplugin.TextCommand):</pre>-->
+                    <pre class="blackboard" style="margin-left:1em"><span class="None"><span class="None"><span class="storage">class</span> <span class="entity">SampleCommand</span><span class="None">(</span><span class="None"><span class="superclass">sublimeplugin.TextCommand</span></span><span class="None">)</span><span class="None">:</span></span></span></pre>
+                    <p>
+                        The first word (yellow in this theme) is the
+                        <q>class</q>
+                        keyword telling python that a class definition starts.
+                    </p>
+                    <p>
+                        Next,
+                        <q>SampleCommand</q>
+                        represents the name of the class from which the command name will be derived.
+                    Here the resulting name will be
+                        <q>sample</q>
+                        due to the following process.
+                        <ul>
+                            <li>
+                                The first letter is lower-cased so as to follow Sublime's internal
+                                <a href="http://en.wikipedia.org/wiki/CamelCase">camelCase</a>
+                                naming convention
+                            </li>
+                            <li>
+                                If a
+                                <em>class</em>
+                                name ends in
+                                <q>Command</q>
+                                (which is not mandatory) this will be stripped
+                            </li>
+                            <li>
+                                <table id="class-command-mapping">
+                                    <tr>
+                                        <th>ClassName</th>
+                                        <th>commandName</th>
+                                    </tr>
+                                    <tr>
+                                        <td>SampleCommand</td>
+                                        <td>sample</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sample</td>
+                                        <td>sample</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MyCoolCommand</td>
+                                        <td>myCool</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ReverseSelectionDirections</td>
+                                        <td>reverseSelectionDirections</td>
+                                    </tr>
+                                </table>
+                            </li>
+                            
+                        </ul>
+                    </p>
+                    <p>
+                        Finally, inside the parantheses is found
+                        <q>sublimeplugin.TextCommand</q>
+                        , which tells
+                        python the plugin should inherit from this base class.
+                        The fact it is a <q>TextCommand</q> means that the plugin will
+                        operate on a <a href="concepts-view.html#view">View</a>.
+                        ( Remember the <a href="concepts-application-hierarchy.html">application hierarchy</a> and <a href="concepts-commands.html#command-types">command types</a> ?)
+                    </p>
+                </div>
+                <p>The actual function which <q>run</q>s the command:</p>
+                <pre class='blackboard excerpt'><span class='None'><span class='None'><span class='storage'>def</span> <span class='entity'>run</span><span class='None'>(</span><span class='None'><span class='variable'>self</span><span class='None'>,</span> <span class='variable'>view</span><span class='None'>,</span> <span class='variable'>args</span></span><span class='None'>)</span><span class='None'>:</span></span></span></pre>
+                <ul>
+                    <li>The <q>def</q> is the python keyword to denote the start of a function definition</li>
+                    <li>The <q>run</q> is the name of the function which must be implemented</li>
+                    <li>The <q>self</q> is the <q>instance</q> of the plugin class</li>
+                    <li>The <q>view</q> is a reference to the <a href="http://www.sublimetext.com/docs/api-reference#sublime.View">View</a> the command is operating on</li>
+                    <li>
+                        The
+                        <q>args</q>
+                        is a list of strings passed in when the command was run. 
+                        <p>
+                            For example if you ran the command from a binding as so:
+                                <pre class='blackboard excerpt'><span class='metaTag'><span class='metaTag'>&lt;</span><span class='metaTag'>binding</span> <span class='metaTag'>key</span>=<span class='string'><span class='string'>"</span>up<span class='string'>"</span></span> <span class='metaTag'>command</span>=<span class='string'><span class='string'>"</span>move lines -1<span class='string'>"</span></span><span class='metaTag'>&gt;</span></span></pre>
+                        </p>
+                        <p>
+                            The args passed in would be <span class='blackboard'><span class='None'><span class='None'><span class='None'>[</span><span class='string'><span class='string'>'</span></span><span class='None'><span class='string'>lines<span class='string'>'</span></span></span><span class='None'>,</span> <span class='string'><span class='string'>'</span></span><span class='None'><span class='string'>-1<span class='string'>'</span></span></span><span class='None'>]</span></span></span></span>
+                        </p>
+                    
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>Setting up a keybinding</h3>
+                <p>
+                    It helps to set up your binding first so you can easily test your commmand through its development.
+                    Delete the existing class and type in the following
+                </p>
+                <!-- <pre>
+class ReverseSelectionDirections(sublimeplugin.TextCommand):
+    def run(self, view, args):
+        print args
+                </pre> -->
+<pre class='blackboard excerpt'><span class='None'><span class='None'><span class='storage'>class</span> <span class='entity'>ReverseSelectionDirections</span><span class='None'>(</span><span class='None'><span class='superclass'>sublimeplugin.TextCommand</span></span><span class='None'>)</span><span class='None'>:</span></span>
+<span class='None'>    <span class='storage'>def</span> <span class='entity'>run</span><span class='None'>(</span><span class='None'><span class='variable'>self</span><span class='None'>,</span> <span class='variable'>view</span><span class='None'>,</span> <span class='variable'>args</span></span><span class='None'>)</span><span class='None'>:</span></span>
+        <span class='keyword'>print</span> args</span></pre>
+                
+                <p>Open your User/Default.sublime-keymap file and add the following binding</p>
+<!-- <pre>
+<binding key="ctrl+r" command="reverseSelectionDirections"/>
+</pre> -->
+<pre class='blackboard excerpt'><span class='None'><span class='metaTag'><span class='metaTag'>&lt;</span><span class='metaTag'>binding</span> <span class='metaTag'>key</span>=<span class='string'><span class='string'>"</span>ctrl+r<span class='string'>"</span></span> <span class='metaTag'>command</span>=<span class='string'><span class='string'>"</span>reverseSelectionDirections<span class='string'>"</span></span><span class='metaTag'>/&gt;</span></span></span></pre>
+                
+                <p>Open the python console (<span class="binding">ctrl+backquote</span>) and look for the (empty) args to be printed.</p>
+                <p>In python an empty list is represented as <code>[]</code> </p>
+                <img src='images/tools-new-plugin-print-args-in-console.gif' />
+                <p>Binding Working? Great</p>
+            </div>
+            <div>
+                <h3>Writing the actual command</h3>
+<!-- <pre>
+class ReverseSelectionDirections(sublimeplugin.TextCommand):
+    def run(self, view, args):
+        for sel in [sublime.Region(sel.b, sel.a) for sel in view.sel()]:
+            view.sel().add(sel)
+</pre> -->
+<pre class='blackboard excerpt'><span class='None'><span class='None'><span class='storage'>class</span> <span class='entity'>ReverseSelectionDirections</span><span class='None'>(</span><span class='None'><span class='superclass'>sublimeplugin.TextCommand</span></span><span class='None'>)</span><span class='None'>:</span></span>
+<span class='None'>    <span class='storage'>def</span> <span class='entity'>run</span><span class='None'>(</span><span class='None'><span class='variable'>self</span><span class='None'>,</span> <span class='variable'>view</span><span class='None'>,</span> <span class='variable'>args</span></span><span class='None'>)</span><span class='None'>:</span></span>
+        <span class='keyword'>for</span> sel <span class='keyword'>in</span> <span class='None'><span class='None'>[</span><span class='None'><span class='metaFunctionCallPython'>sublime.Region<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'>sel.b, sel.a</span><span class='metaFunctionCallPython'>)</span></span> <span class='keyword'>for</span> sel <span class='keyword'>in</span> <span class='metaFunctionCallPython'>view.sel<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'>)</span></span></span><span class='None'>]</span></span>:
+            <span class='metaFunctionCallPython'>view.sel<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'>)</span></span>.<span class='metaFunctionCallPython'>add<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'>sel</span><span class='metaFunctionCallPython'>)</span></span></span></pre>
+            
+            </div>
         </div>
+
+        <!-- <div id="try-this" class='section'>
+            <h2>Try this </h2>
+        </div> -->
 
         <div id="comments" class='section'>
             <h2>Comments</h2>
