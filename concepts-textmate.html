@@ -21,21 +21,124 @@
                 <li><a href="#introduction">Introduction</a></li>
             </ul>
             <ul>
-                <li><a href="#command-types">Command Types</a></li>
-                <li><a href="#try-this">Try This</a></li>
+                <li><a href="#textmate-grammars">TextMate Grammars</a></li>
+                <li><a href="#textmate-themes">TextMate Themes</a></li>
+                <li><a href="#textmate-snippets">TextMate Snippets</a></li>
             </ul>
             <ul>
-                <!-- <li><a href="#comments">Quiz</a></li> -->
+                <li><a href="#try-this">Try This</a></li>
                 <li><a href="#comments">Comments</a></li>
             </ul>
         </div>
 
         <div id="introduction" class="section">
             <h2>Introduction</h2>
+            <p>
+                Sublime borrows some concepts from the popular mac only <a href="http://macromates.com/">TextMate</a> editor.
+            </p>
+            <p>
+        
+                While it doesn't have <q>drop-in</q> support for complete
+                bundles it does support the open source grammars, snippets
+                and  syntax highlighting themes created by the
+                TextMate community.
+            </p>
+            <p>
+                TextMate commands which call out to shell scripts are not
+                supported however Sublime is extensible via python which has
+                good support for calling subprocesses.
+            </p>
+            <p>
+                
+                IOW TextMate style declarative subprocess
+                extensibility is a subset of the native imperative
+                scripting that Sublime offers. Theoretically, any
+                command could be ported if the desire was great
+                enough.
+                
+            </p>
+        </div>
+
+        <div id="textmate-grammars" class='section'>
+            <h2>TextMate Grammars</h2>
+            
+            <p>
+                Sublime fully supports TM's <q>tmLanguage</q> files when in the xml
+                format of plist.
+            </p>
+            <p>
+                Every <a href="concepts-view.html#point">pt</a> in the document is assigned a <a href="http://manual.macromates.com/en/scope_selectors">scope</a>
+            </p>
+            <p>
+                The <a href="http://manual.macromates.com/en/language_grammars">declarative grammars</a> include support for embedded languages (
+                 css inside <span class='blackboard'><span class='None'><span class='None'><span class='None'>&lt;</span><span class='entity'>style</span><span class='None'>&gt;</span> <span class='None'>&lt;/</span><span class='entity'>style</span><span class='None'>&gt;</span></span></span></span> tags for example. 
+                )
+            </p>
+            
+            <table class="caption">
+                <tr>
+                    <td>
+                        <img onclick="this.src=this.src;" src='images/scoping-api.gif' />
+                    </td>
+                    <td>
+                        <p>
+                        
+                        Sublime  has python API support for accessing
+                        the scopes at various points in the document
+                        and also for determining if a selector matches.
+
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="textmate-themes" class='section'>
+            <h2>TextMate Themes</h2>
+            <p>
+                This stylesheet for this very guide is based on the blackboard theme.
+                Any <q>tmTheme</q> you find on the internet will be supported and about
+                20 of the most popular come with the default install.
+            </p>
+            <p>
+                Currently some of the font styling declarations such
+                as underlining or italics are unsupported.
+            </p>
+        </div>
+
+        <div id="textmate-snippets" class='section'>
+            <h2>TextMate Snippets</h2>
+            <img src='images/textmate-snippets.gif' />
+            <p>
+                It has full support for the advanced features such as
+                regex transformation of mirror tab stops.
+            </p>
+            <p>
+                Most of the <q>$TM_VARS</q> will be expanded, however `shell code` will not be.
+            </p>
         </div>
 
         <div id="try-this" class='section'>
             <h2>Try this </h2>
+            <ul>
+                
+            </ul>
+            
+            <ul>
+                <li>Create a new untitled file</li>
+                <li>Type in some characters and then run <q>displayName</q> command (<span class="binding">ctrl+alt+p</span>) </li>
+                <li>Open the python console (<span class="binding">ctrl+backquote</span>) </li>
+                <li>
+                    <!-- <pre>
+view.syntaxName(0) # find the TextMate scope at point 0
+view.matchSelector(0, 'text') # determine if text selector matches
+view.runCommand('insertInlineSnippet "python ${1:really} ${2:rocks}"')
+                    </pre> -->
+<pre class='blackboard'><span class='None'><span class='metaFunctionCallPython'>view.syntaxName<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'><span class='constant'>0</span></span><span class='metaFunctionCallPython'>)</span></span> <span class='comment'><span class='comment'>#</span> find the TextMate scope at point 0
+</span><span class='metaFunctionCallPython'>view.matchSelector<span class='metaFunctionCallPython'>(</span><span class='metaFunctionCallPython'><span class='constant'>0</span>, </span><span class='string'><span class='string'>'</span></span><span class='metaFunctionCallPython'><span class='string'>text<span class='string'>'</span></span></span><span class='metaFunctionCallPython'>)</span></span> <span class='comment'><span class='comment'>#</span> determine if text selector matches
+</span><span class='metaFunctionCallPython'>view.runCommand<span class='metaFunctionCallPython'>(</span><span class='string'><span class='string'>'</span></span><span class='metaFunctionCallPython'><span class='string'>insertInlineSnippet "python ${1:really} ${2:rocks}"<span class='string'>'</span></span></span><span class='metaFunctionCallPython'>)</span></span></span></pre>
+                </li>
+            </ul>
         </div>
 
         <div id="comments" class='section'>
