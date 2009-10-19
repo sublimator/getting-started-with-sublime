@@ -1,7 +1,8 @@
 <!-- Documentation is available at http://www.sublimetext.com/docs/projects -->
 <project>
-	<mount dir="." direxclude="images,.svn,.git,.hg, CVS" exclude='*.jpg, *.png, *.gif'/>
-	<options><![CDATA[
-pushOnCommit true
-]]></options>
+    <mount dir="." direxclude="images,.svn,.git,.hg, CVS" exclude="*.jpg, *.png, *.gif" />
+    <options>
+        <![CDATA[pushOnCommit true
+buildFile Packages/C++/Make.sublime-build]]>
+</options>
 </project>
